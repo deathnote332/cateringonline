@@ -27,19 +27,13 @@ Partial Class Form1
         Me.Reserve_list = New System.Windows.Forms.Panel()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Service_list = New System.Windows.Forms.Panel()
+        Me.Packages_list = New System.Windows.Forms.Panel()
         Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Venue_list = New System.Windows.Forms.Panel()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Menu_list = New System.Windows.Forms.Panel()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Decoration_list = New System.Windows.Forms.Panel()
+        Me.Menus_list = New System.Windows.Forms.Panel()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Food_list = New System.Windows.Forms.Panel()
+        Me.Events_list = New System.Windows.Forms.Panel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -80,31 +74,27 @@ Partial Class Form1
         Me.Service_panel = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.Decoration_panel = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.Paclages_panel = New System.Windows.Forms.Panel()
         Me.Menu_panel = New System.Windows.Forms.Panel()
+        Me.Events_panel = New System.Windows.Forms.Panel()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
-        Me.Venue_panel = New System.Windows.Forms.Panel()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
         Me.Reserve_list.SuspendLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Service_list.SuspendLayout()
+        Me.Packages_list.SuspendLayout()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Venue_list.SuspendLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Menu_list.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Decoration_list.SuspendLayout()
+        Me.Menus_list.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Food_list.SuspendLayout()
+        Me.Events_list.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -117,24 +107,22 @@ Partial Class Form1
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Service_panel.SuspendLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Decoration_panel.SuspendLayout()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Paclages_panel.SuspendLayout()
         Me.Menu_panel.SuspendLayout()
+        Me.Events_panel.SuspendLayout()
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Venue_panel.SuspendLayout()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Reserve_list)
-        Me.Panel1.Controls.Add(Me.Service_list)
-        Me.Panel1.Controls.Add(Me.Venue_list)
-        Me.Panel1.Controls.Add(Me.Menu_list)
-        Me.Panel1.Controls.Add(Me.Decoration_list)
-        Me.Panel1.Controls.Add(Me.Food_list)
+        Me.Panel1.Controls.Add(Me.Packages_list)
+        Me.Panel1.Controls.Add(Me.Menus_list)
+        Me.Panel1.Controls.Add(Me.Events_list)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(-1, -6)
         Me.Panel1.Name = "Panel1"
@@ -171,14 +159,14 @@ Partial Class Form1
         Me.Label15.TabIndex = 1
         Me.Label15.Text = "Reservation"
         '
-        'Service_list
+        'Packages_list
         '
-        Me.Service_list.Controls.Add(Me.PictureBox10)
-        Me.Service_list.Controls.Add(Me.Label11)
-        Me.Service_list.Location = New System.Drawing.Point(-3, 242)
-        Me.Service_list.Name = "Service_list"
-        Me.Service_list.Size = New System.Drawing.Size(188, 46)
-        Me.Service_list.TabIndex = 3
+        Me.Packages_list.Controls.Add(Me.PictureBox10)
+        Me.Packages_list.Controls.Add(Me.Label11)
+        Me.Packages_list.Location = New System.Drawing.Point(-3, 242)
+        Me.Packages_list.Name = "Packages_list"
+        Me.Packages_list.Size = New System.Drawing.Size(188, 46)
+        Me.Packages_list.TabIndex = 3
         '
         'PictureBox10
         '
@@ -197,78 +185,18 @@ Partial Class Form1
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(48, 14)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(67, 21)
+        Me.Label11.Size = New System.Drawing.Size(73, 21)
         Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Services"
+        Me.Label11.Text = "Packages"
         '
-        'Venue_list
+        'Menus_list
         '
-        Me.Venue_list.Controls.Add(Me.PictureBox6)
-        Me.Venue_list.Controls.Add(Me.Label7)
-        Me.Venue_list.Location = New System.Drawing.Point(-3, 379)
-        Me.Venue_list.Name = "Venue_list"
-        Me.Venue_list.Size = New System.Drawing.Size(188, 46)
-        Me.Venue_list.TabIndex = 5
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(16, 10)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(28, 26)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 2
-        Me.PictureBox6.TabStop = False
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(48, 13)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(61, 21)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "Venues"
-        '
-        'Menu_list
-        '
-        Me.Menu_list.Controls.Add(Me.PictureBox5)
-        Me.Menu_list.Controls.Add(Me.Label6)
-        Me.Menu_list.Location = New System.Drawing.Point(-3, 333)
-        Me.Menu_list.Name = "Menu_list"
-        Me.Menu_list.Size = New System.Drawing.Size(188, 46)
-        Me.Menu_list.TabIndex = 4
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(16, 10)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(28, 26)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 2
-        Me.PictureBox5.TabStop = False
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(48, 13)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 21)
-        Me.Label6.TabIndex = 1
-        Me.Label6.Text = "Menus"
-        '
-        'Decoration_list
-        '
-        Me.Decoration_list.Controls.Add(Me.PictureBox4)
-        Me.Decoration_list.Controls.Add(Me.Label5)
-        Me.Decoration_list.Location = New System.Drawing.Point(-3, 287)
-        Me.Decoration_list.Name = "Decoration_list"
-        Me.Decoration_list.Size = New System.Drawing.Size(188, 46)
-        Me.Decoration_list.TabIndex = 3
+        Me.Menus_list.Controls.Add(Me.PictureBox4)
+        Me.Menus_list.Controls.Add(Me.Label5)
+        Me.Menus_list.Location = New System.Drawing.Point(-3, 287)
+        Me.Menus_list.Name = "Menus_list"
+        Me.Menus_list.Size = New System.Drawing.Size(188, 46)
+        Me.Menus_list.TabIndex = 3
         '
         'PictureBox4
         '
@@ -287,18 +215,19 @@ Partial Class Form1
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(48, 14)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 21)
+        Me.Label5.Size = New System.Drawing.Size(57, 21)
         Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Decoration"
+        Me.Label5.Text = "Menus"
         '
-        'Food_list
+        'Events_list
         '
-        Me.Food_list.Controls.Add(Me.PictureBox3)
-        Me.Food_list.Controls.Add(Me.Label4)
-        Me.Food_list.Location = New System.Drawing.Point(-2, 195)
-        Me.Food_list.Name = "Food_list"
-        Me.Food_list.Size = New System.Drawing.Size(188, 46)
-        Me.Food_list.TabIndex = 2
+        Me.Events_list.Controls.Add(Me.PictureBox3)
+        Me.Events_list.Controls.Add(Me.Label4)
+        Me.Events_list.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Events_list.Location = New System.Drawing.Point(-2, 195)
+        Me.Events_list.Name = "Events_list"
+        Me.Events_list.Size = New System.Drawing.Size(188, 46)
+        Me.Events_list.TabIndex = 2
         '
         'PictureBox3
         '
@@ -317,13 +246,12 @@ Partial Class Form1
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(48, 14)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 21)
+        Me.Label4.Size = New System.Drawing.Size(55, 21)
         Me.Label4.TabIndex = 1
-        Me.Label4.Text = "Foods"
+        Me.Label4.Text = "Events"
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(13, 18)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(144, 112)
@@ -370,7 +298,7 @@ Partial Class Form1
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(879, 7)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(121, 21)
+        Me.Label2.Size = New System.Drawing.Size(120, 21)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "John Paul Inhog"
         '
@@ -390,7 +318,7 @@ Partial Class Form1
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(185, 45)
+        Me.Label1.Size = New System.Drawing.Size(184, 45)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Reservation"
         '
@@ -732,43 +660,23 @@ Partial Class Form1
         Me.DataGridView3.Size = New System.Drawing.Size(969, 358)
         Me.DataGridView3.TabIndex = 1
         '
-        'Decoration_panel
+        'Paclages_panel
         '
-        Me.Decoration_panel.BackColor = System.Drawing.Color.White
-        Me.Decoration_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Decoration_panel.Controls.Add(Me.Button2)
-        Me.Decoration_panel.Controls.Add(Me.DataGridView4)
-        Me.Decoration_panel.Location = New System.Drawing.Point(203, 151)
-        Me.Decoration_panel.Name = "Decoration_panel"
-        Me.Decoration_panel.Size = New System.Drawing.Size(1011, 439)
-        Me.Decoration_panel.TabIndex = 21
-        Me.Decoration_panel.Visible = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(103, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(21, 14)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(208, 38)
-        Me.Button2.TabIndex = 14
-        Me.Button2.Text = "ADD DECORATION"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'DataGridView4
-        '
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(21, 60)
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(969, 358)
-        Me.DataGridView4.TabIndex = 1
+        Me.Paclages_panel.BackColor = System.Drawing.Color.White
+        Me.Paclages_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Paclages_panel.Controls.Add(Me.Button2)
+        Me.Paclages_panel.Controls.Add(Me.DataGridView4)
+        Me.Paclages_panel.Location = New System.Drawing.Point(203, 151)
+        Me.Paclages_panel.Name = "Paclages_panel"
+        Me.Paclages_panel.Size = New System.Drawing.Size(1011, 439)
+        Me.Paclages_panel.TabIndex = 21
+        Me.Paclages_panel.Visible = False
         '
         'Menu_panel
         '
         Me.Menu_panel.BackColor = System.Drawing.Color.White
         Me.Menu_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Menu_panel.Controls.Add(Me.Events_panel)
         Me.Menu_panel.Controls.Add(Me.Label28)
         Me.Menu_panel.Controls.Add(Me.Button4)
         Me.Menu_panel.Controls.Add(Me.Label30)
@@ -776,11 +684,44 @@ Partial Class Form1
         Me.Menu_panel.Controls.Add(Me.Label33)
         Me.Menu_panel.Controls.Add(Me.PictureBox8)
         Me.Menu_panel.Controls.Add(Me.DataGridView5)
-        Me.Menu_panel.Location = New System.Drawing.Point(205, 152)
+        Me.Menu_panel.Location = New System.Drawing.Point(199, 147)
         Me.Menu_panel.Name = "Menu_panel"
         Me.Menu_panel.Size = New System.Drawing.Size(1011, 439)
         Me.Menu_panel.TabIndex = 22
         Me.Menu_panel.Visible = False
+        '
+        'Events_panel
+        '
+        Me.Events_panel.BackColor = System.Drawing.Color.White
+        Me.Events_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Events_panel.Controls.Add(Me.Button5)
+        Me.Events_panel.Controls.Add(Me.DataGridView6)
+        Me.Events_panel.Location = New System.Drawing.Point(156, 178)
+        Me.Events_panel.Name = "Events_panel"
+        Me.Events_panel.Size = New System.Drawing.Size(1011, 439)
+        Me.Events_panel.TabIndex = 44
+        Me.Events_panel.Visible = False
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(103, Byte), Integer))
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.White
+        Me.Button5.Location = New System.Drawing.Point(24, 23)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(192, 38)
+        Me.Button5.TabIndex = 44
+        Me.Button5.Text = "ADD EVENT"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'DataGridView6
+        '
+        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView6.Location = New System.Drawing.Point(21, 83)
+        Me.DataGridView6.Name = "DataGridView6"
+        Me.DataGridView6.Size = New System.Drawing.Size(969, 335)
+        Me.DataGridView6.TabIndex = 1
         '
         'Label28
         '
@@ -818,7 +759,7 @@ Partial Class Form1
         Me.Label33.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label33.Location = New System.Drawing.Point(349, 33)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(97, 21)
+        Me.Label33.Size = New System.Drawing.Size(96, 21)
         Me.Label33.TabIndex = 40
         Me.Label33.Text = "Service Type"
         '
@@ -838,38 +779,26 @@ Partial Class Form1
         Me.DataGridView5.Size = New System.Drawing.Size(969, 170)
         Me.DataGridView5.TabIndex = 1
         '
-        'Venue_panel
+        'Button2
         '
-        Me.Venue_panel.BackColor = System.Drawing.Color.White
-        Me.Venue_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Venue_panel.Controls.Add(Me.Button5)
-        Me.Venue_panel.Controls.Add(Me.DataGridView6)
-        Me.Venue_panel.Location = New System.Drawing.Point(203, 151)
-        Me.Venue_panel.Name = "Venue_panel"
-        Me.Venue_panel.Size = New System.Drawing.Size(1011, 439)
-        Me.Venue_panel.TabIndex = 44
-        Me.Venue_panel.Visible = False
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(103, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(21, 14)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(208, 38)
+        Me.Button2.TabIndex = 14
+        Me.Button2.Text = "ADD PACKAGE"
+        Me.Button2.UseVisualStyleBackColor = False
         '
-        'Button5
+        'DataGridView4
         '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(103, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Location = New System.Drawing.Point(24, 23)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(192, 38)
-        Me.Button5.TabIndex = 44
-        Me.Button5.Text = "ADD VENUE"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
-        'DataGridView6
-        '
-        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView6.Location = New System.Drawing.Point(21, 83)
-        Me.DataGridView6.Name = "DataGridView6"
-        Me.DataGridView6.Size = New System.Drawing.Size(969, 335)
-        Me.DataGridView6.TabIndex = 1
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Location = New System.Drawing.Point(21, 60)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.Size = New System.Drawing.Size(969, 358)
+        Me.DataGridView4.TabIndex = 1
         '
         'Form1
         '
@@ -877,9 +806,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(1235, 602)
-        Me.Controls.Add(Me.Venue_panel)
         Me.Controls.Add(Me.Menu_panel)
-        Me.Controls.Add(Me.Decoration_panel)
+        Me.Controls.Add(Me.Paclages_panel)
         Me.Controls.Add(Me.Service_panel)
         Me.Controls.Add(Me.Food_panel)
         Me.Controls.Add(Me.Reserve_panel)
@@ -894,20 +822,14 @@ Partial Class Form1
         Me.Reserve_list.ResumeLayout(False)
         Me.Reserve_list.PerformLayout()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Service_list.ResumeLayout(False)
-        Me.Service_list.PerformLayout()
+        Me.Packages_list.ResumeLayout(False)
+        Me.Packages_list.PerformLayout()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Venue_list.ResumeLayout(False)
-        Me.Venue_list.PerformLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Menu_list.ResumeLayout(False)
-        Me.Menu_list.PerformLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Decoration_list.ResumeLayout(False)
-        Me.Decoration_list.PerformLayout()
+        Me.Menus_list.ResumeLayout(False)
+        Me.Menus_list.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Food_list.ResumeLayout(False)
-        Me.Food_list.PerformLayout()
+        Me.Events_list.ResumeLayout(False)
+        Me.Events_list.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
@@ -923,14 +845,14 @@ Partial Class Form1
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Service_panel.ResumeLayout(False)
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Decoration_panel.ResumeLayout(False)
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Paclages_panel.ResumeLayout(False)
         Me.Menu_panel.ResumeLayout(False)
         Me.Menu_panel.PerformLayout()
+        Me.Events_panel.ResumeLayout(False)
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Venue_panel.ResumeLayout(False)
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -938,8 +860,8 @@ Partial Class Form1
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents Food_list As System.Windows.Forms.Panel
-    Friend WithEvents Decoration_list As System.Windows.Forms.Panel
+    Friend WithEvents Events_list As System.Windows.Forms.Panel
+    Friend WithEvents Menus_list As System.Windows.Forms.Panel
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
@@ -947,13 +869,7 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Menu_list As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Venue_list As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Service_list As System.Windows.Forms.Panel
+    Friend WithEvents Packages_list As System.Windows.Forms.Panel
     Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Reserve_list As System.Windows.Forms.Panel
@@ -990,7 +906,7 @@ Partial Class Form1
     Friend WithEvents Service_panel As System.Windows.Forms.Panel
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
-    Friend WithEvents Decoration_panel As System.Windows.Forms.Panel
+    Friend WithEvents Paclages_panel As System.Windows.Forms.Panel
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
     Friend WithEvents Menu_panel As System.Windows.Forms.Panel
@@ -1001,8 +917,7 @@ Partial Class Form1
     Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents Label33 As System.Windows.Forms.Label
-    Friend WithEvents Venue_panel As System.Windows.Forms.Panel
+    Friend WithEvents Events_panel As System.Windows.Forms.Panel
     Friend WithEvents DataGridView6 As System.Windows.Forms.DataGridView
     Friend WithEvents Button5 As System.Windows.Forms.Button
-
 End Class

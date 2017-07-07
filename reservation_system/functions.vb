@@ -15,6 +15,8 @@ Module functions
 
     Public field As New Dictionary(Of String, String)
 
+    Public comboFields As Array
+
     ' Dim con As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\john.inhog\Desktop\sample.mdb"
     '    Public con As String = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=localhost;Database=catering;Uid=root;Password='';"
 
@@ -110,6 +112,25 @@ Module functions
         Dim data As Byte() = DirectCast(field, Byte())
         Dim ms As New MemoryStream(data)
         Return ms
+    End Function
+
+    Public Function getList(tableName As String, cb As ComboBox)
+        Dim combodic As New Dictionary(Of String, String)
+
+        rs.Open("select * from " & tableName & "", connection(), 2, 2)
+
+        Do Until rs.EOF
+
+            combodic.Add(rs("id").Value(), rs("" & tableName.Substring(0, tableName.Length - 1) & "_name").Value())
+
+            rs.MoveNext()
+        Loop
+
+        cb.DataSource = New BindingSource(combodic, Nothing)
+        cb.DisplayMember = "Value"
+        cb.ValueMember = "Key"
+        rs.Close()
+
     End Function
 
 End Module

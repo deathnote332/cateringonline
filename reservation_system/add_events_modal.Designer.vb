@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class add_venue_modal
+Partial Class add_events_modal
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.

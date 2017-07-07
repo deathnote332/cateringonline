@@ -22,7 +22,6 @@ Partial Class add_menu_modal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -30,28 +29,21 @@ Partial Class add_menu_modal
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(449, 92)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(331, 29)
-        Me.TextBox2.TabIndex = 36
         '
         'Button3
         '
@@ -122,25 +114,15 @@ Partial Class add_menu_modal
         Me.Panel1.Size = New System.Drawing.Size(863, 85)
         Me.Panel1.TabIndex = 31
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(368, 141)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 21)
-        Me.Label2.TabIndex = 30
-        Me.Label2.Text = "Ideal For"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(346, 92)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 21)
+        Me.Label1.Size = New System.Drawing.Size(84, 21)
         Me.Label1.TabIndex = 29
-        Me.Label1.Text = "Service Type"
+        Me.Label1.Text = "Event Type"
         '
         'Label3
         '
@@ -152,6 +134,24 @@ Partial Class add_menu_modal
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "Price Range"
         '
+        'TextBox4
+        '
+        Me.TextBox4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(449, 187)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(331, 29)
+        Me.TextBox4.TabIndex = 42
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.reservation_system.My.Resources.Resources.nobody_profile_image
+        Me.PictureBox1.Location = New System.Drawing.Point(33, 111)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(285, 248)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 33
+        Me.PictureBox1.TabStop = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -161,30 +161,6 @@ Partial Class add_menu_modal
         Me.Label4.Size = New System.Drawing.Size(34, 21)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "List"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(449, 278)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(331, 112)
-        Me.DataGridView1.TabIndex = 40
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(449, 141)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(331, 29)
-        Me.TextBox3.TabIndex = 41
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(449, 187)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(331, 29)
-        Me.TextBox4.TabIndex = 42
         '
         'Button4
         '
@@ -199,34 +175,58 @@ Partial Class add_menu_modal
         Me.Button4.Text = "Add Product"
         Me.Button4.UseVisualStyleBackColor = False
         '
-        'PictureBox1
+        'DataGridView1
         '
-        Me.PictureBox1.Image = Global.reservation_system.My.Resources.Resources.nobody_profile_image
-        Me.PictureBox1.Location = New System.Drawing.Point(33, 111)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(285, 248)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 33
-        Me.PictureBox1.TabStop = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(449, 278)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(331, 112)
+        Me.DataGridView1.TabIndex = 40
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(449, 91)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(331, 21)
+        Me.ComboBox1.TabIndex = 43
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(449, 135)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(331, 21)
+        Me.ComboBox2.TabIndex = 45
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(346, 136)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(66, 21)
+        Me.Label5.TabIndex = 44
+        Me.Label5.Text = "Package"
         '
         'add_menu_modal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(857, 472)
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "add_menu_modal"
@@ -235,13 +235,12 @@ Partial Class add_menu_modal
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
@@ -250,12 +249,13 @@ Partial Class add_menu_modal
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Button4 As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label5 As Label
 End Class

@@ -88,16 +88,16 @@
     <Compile Include="add_product_modal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="add_service_modal.Designer.vb">
-      <DependentUpon>add_service_modal.vb</DependentUpon>
+    <Compile Include="add_package_modal.Designer.vb">
+      <DependentUpon>add_package_modal.vb</DependentUpon>
     </Compile>
-    <Compile Include="add_service_modal.vb">
+    <Compile Include="add_package_modal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="add_venue_modal.Designer.vb">
-      <DependentUpon>add_venue_modal.vb</DependentUpon>
+    <Compile Include="add_events_modal.Designer.vb">
+      <DependentUpon>add_events_modal.vb</DependentUpon>
     </Compile>
-    <Compile Include="add_venue_modal.vb">
+    <Compile Include="add_events_modal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -134,11 +134,11 @@
     <EmbeddedResource Include="add_product_modal.resx">
       <DependentUpon>add_product_modal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="add_service_modal.resx">
-      <DependentUpon>add_service_modal.vb</DependentUpon>
+    <EmbeddedResource Include="add_package_modal.resx">
+      <DependentUpon>add_package_modal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="add_venue_modal.resx">
-      <DependentUpon>add_venue_modal.vb</DependentUpon>
+    <EmbeddedResource Include="add_events_modal.resx">
+      <DependentUpon>add_events_modal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
