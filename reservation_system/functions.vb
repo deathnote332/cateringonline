@@ -15,7 +15,6 @@ Module functions
 
     Public field As New Dictionary(Of String, String)
 
-    Public comboFields As Array
 
     ' Dim con As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\john.inhog\Desktop\sample.mdb"
     '    Public con As String = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=localhost;Database=catering;Uid=root;Password='';"
@@ -132,5 +131,21 @@ Module functions
         rs.Close()
 
     End Function
+
+    Public Function getFood(menu_id As String, tableName As String, lvt As Windows.Forms.ListView)
+        rs.Open("select * from " & tableName & "", connection(), 2, 2)
+        lvt.Items.Clear()
+
+        Do Until rs.EOF
+            Dim lvItem As New ListViewItem
+            lvItem.SubItems.Add("" & rs("" & tableName.Substring(0, tableName.Length - 1) & "_name").Value())
+            lvt.Items.Add(lvItem)
+            rs.MoveNext()
+        Loop
+
+        rs.Close()
+
+    End Function
+
 
 End Module

@@ -63,3 +63,5 @@ C:\xampp\htdocs\cateringonline\reservation_system\obj\Debug\reservation_system.R
 C:\xampp\htdocs\cateringonline\reservation_system\obj\Debug\reservation_system.vbproj.GenerateResource.Cache
 C:\xampp\htdocs\cateringonline\reservation_system\obj\Debug\reservation_system.add_events_modal.resources
 C:\xampp\htdocs\cateringonline\reservation_system\obj\Debug\reservation_system.add_package_modal.resources
+C:\xampp\htdocs\cateringonline\reservation_system\obj\Debug\reservation_system.ListView.resources
+C:\xampp\htdocs\cateringonline\reservation_system\obj\Debug\reservation_system.addFood.resources

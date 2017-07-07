@@ -6,9 +6,6 @@
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim key As String = DirectCast(ComboBox1.SelectedItem, KeyValuePair(Of String, String)).Key
-
-
-
         field.Add("package_name", TextBox3.Text)
         field.Add("event_id", key)
         field.Add("total_guest", ComboBox2.Text)
