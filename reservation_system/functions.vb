@@ -1,10 +1,12 @@
-﻿Module functions
+﻿Imports System.IO
+
+Module functions
 
     Public colNames As Array
     Public dataFieldName As Array
 
     'connection
-    Public conType As String = "mysql"
+    Public conType As String = "access"
     Dim host As String = "localhost"
     Dim hostName As String = "root"
     Dim hostpassword As String = ""
@@ -63,8 +65,11 @@
         rs.Open("select * from " & tableName & "", connection(), 2, 2)
         rs.AddNew()
         For Each dic As KeyValuePair(Of String, String) In fields
-            rs(dic.Key).Value = dic.Value
-
+            If (dic.Key.Equals("image")) Then
+                rs(dic.Key).Value = System.Text.Encoding.Unicode.GetBytes(dic.Value)
+            Else
+                rs(dic.Key).Value = dic.Value
+            End If
         Next
         rs.Update()
         rs.Close()
@@ -77,7 +82,13 @@
         rs.Open("select * from " & tableName & "", connection(), 2, 2)
 
         For Each dic As KeyValuePair(Of String, String) In fields
-            rs(dic.Key).Value = dic.Value
+            If (dic.Key.Equals("image")) Then
+                rs(dic.Key).Value = System.Text.Encoding.Unicode.GetBytes(dic.Value)
+            Else
+                rs(dic.Key).Value = dic.Value
+            End If
+
+
 
         Next
         rs.Update()
@@ -87,6 +98,18 @@
 
     End Function
 
+    Public Function imageToByte(picture As PictureBox)
 
+        Dim ms As New MemoryStream()
+        picture.Image.Save(ms, picture.Image.RawFormat)
+        Dim data As Byte() = ms.GetBuffer()
+        Return data
+    End Function
+
+    Public Function byteToImage(field)
+        Dim data As Byte() = DirectCast(field, Byte())
+        Dim ms As New MemoryStream(data)
+        Return ms
+    End Function
 
 End Module
