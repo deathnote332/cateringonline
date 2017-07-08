@@ -27,7 +27,7 @@ Module functions
         If (conType.Equals("mysql")) Then
             con = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=" & host & ";Uid=" & hostName & ";Password=" & hostpassword & ";Database=" & dbName & ""
         ElseIf (conType.Equals("access")) Then
-            con = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\john.inhog\Desktop\sample.mdb"
+            con = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\sample.mdb"
         End If
         Return con
     End Function
@@ -58,7 +58,7 @@ Module functions
             For Each fieldName In options("dataFieldName")
                 If (fieldName.Equals("event_id")) Then
                     Dim rs1 As New ADODB.Recordset
-                    rs1.Open("select * from events where id='" & rs(fieldName).Value & "'", connection(), 2, 2)
+                    rs1.Open("select * from events where id=" & rs(fieldName).Value & "", connection(), 2, 2)
                     dataList.Add(rs1("event_name").Value)
                     rs1.Close()
                 ElseIf (fieldName.Equals("image")) Then
