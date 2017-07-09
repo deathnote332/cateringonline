@@ -27,8 +27,10 @@ Public Class Events_page
 
         field.Add("event_name", TextBox2.Text)
         field.Add("event_description", RichTextBox1.Text)
-        
-        Add(field, "events")
+        field.Add("image", "")
+        field.Add("file_name", TextBox3.Text)
+
+        Add(field, "events", ImgToByteArray(PictureBox9.Image, ImageFormat.Jpeg))
 
         backtoAdd()
         MsgBox("Event Successfully Added", vbInformation, "Success")
@@ -56,6 +58,21 @@ Public Class Events_page
         TextBox1.Text = DataGridView1.SelectedRows.Item(0).Cells(0).Value
         TextBox2.Text = DataGridView1.SelectedRows.Item(0).Cells(1).Value
         RichTextBox1.Text = DataGridView1.SelectedRows.Item(0).Cells(2).Value
+        
+        rs.Open("select * from events where id=" & DataGridView1.SelectedRows.Item(0).Cells(0).Value & "")
+            Dim pictureData As Byte() = DirectCast(rs("image").Value, Byte())
+
+        If Not (pictureData.Length = 0) Then
+            
+            Dim ms As New MemoryStream(pictureData)
+            PictureBox9.Image = Image.FromStream(ms)
+
+        Else
+            PictureBox9.Image = System.Drawing.Bitmap.
+        End If
+
+        rs.Close()
+
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -72,8 +89,8 @@ Public Class Events_page
         backtoAdd()
     End Sub
     Public Function loadData()
-        dataGridField.Add("colName", {"ID", "Event Name", "Event Description"})
-        dataGridField.Add("dataFieldName", {"id", "event_name", "event_description"})
+        dataGridField.Add("colName", {"ID", "Event Name", "Event Description", "File Name"})
+        dataGridField.Add("dataFieldName", {"id", "event_name", "event_description", "file_name"})
         dataGrid(DataGridView1, dataGridField, "events")
         DataGridView1.Columns(0).Visible = False
         
@@ -93,6 +110,7 @@ Public Class Events_page
         TextBox1.Clear()
         TextBox2.Clear()
         RichTextBox1.Clear()
+        PictureBox9.Image = Nothing
     End Function
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -101,5 +119,28 @@ Public Class Events_page
 
         loadData()
         backtoAdd()
+    End Sub
+
+    ' this is easily used from a class or converted to an extension
+    Public Function ImgToByteArray(img As Image, imgFormat As ImageFormat) As Byte()
+        Dim tmpData As Byte()
+        Using ms As New MemoryStream()
+            img.Save(ms, imgFormat)
+
+            tmpData = ms.ToArray
+        End Using              ' dispose of memstream
+        Return tmpData
+    End Function
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        OpenFileDialog1.Filter = "(Image Files)|*.jpg;*.png;*.bmp;*.gif;*.ico|Jpg, | *.jpg|Png, | *.png|Bmp, | *.bmp|Gif, | *.gif|Ico | *.ico"
+        If (OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK) Then
+
+            PictureBox9.Image = Image.FromFile(OpenFileDialog1.FileName)
+
+            
+        End If
+
+
     End Sub
 End Class

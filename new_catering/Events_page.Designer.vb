@@ -53,6 +53,10 @@ Partial Class Events_page
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.panel_event_add = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
@@ -66,7 +70,6 @@ Partial Class Events_page
         Me.Label31 = New System.Windows.Forms.Label()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.side_menus.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +85,7 @@ Partial Class Events_page
         Me.panel_events.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_event_add.SuspendLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -395,6 +399,9 @@ Partial Class Events_page
         'panel_event_add
         '
         Me.panel_event_add.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panel_event_add.Controls.Add(Me.Button2)
+        Me.panel_event_add.Controls.Add(Me.TextBox3)
+        Me.panel_event_add.Controls.Add(Me.PictureBox9)
         Me.panel_event_add.Controls.Add(Me.TextBox1)
         Me.panel_event_add.Controls.Add(Me.Button5)
         Me.panel_event_add.Controls.Add(Me.Button4)
@@ -410,13 +417,55 @@ Partial Class Events_page
         Me.panel_event_add.Size = New System.Drawing.Size(262, 475)
         Me.panel_event_add.TabIndex = 25
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button2.Location = New System.Drawing.Point(15, 177)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(90, 22)
+        Me.Button2.TabIndex = 56
+        Me.Button2.Text = "Browser"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'TextBox3
+        '
+        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(111, 177)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(134, 22)
+        Me.TextBox3.TabIndex = 55
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
+        Me.PictureBox9.InitialImage = Nothing
+        Me.PictureBox9.Location = New System.Drawing.Point(15, 40)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(230, 131)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 54
+        Me.PictureBox9.TabStop = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(205, 206)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(38, 29)
+        Me.TextBox1.TabIndex = 53
+        '
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button5.Location = New System.Drawing.Point(137, 264)
+        Me.Button5.Location = New System.Drawing.Point(137, 420)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(106, 37)
         Me.Button5.TabIndex = 52
@@ -429,7 +478,7 @@ Partial Class Events_page
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button4.Location = New System.Drawing.Point(15, 266)
+        Me.Button4.Location = New System.Drawing.Point(15, 422)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(109, 37)
         Me.Button4.TabIndex = 51
@@ -451,7 +500,7 @@ Partial Class Events_page
         'RichTextBox1
         '
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.RichTextBox1.Location = New System.Drawing.Point(14, 141)
+        Me.RichTextBox1.Location = New System.Drawing.Point(14, 297)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(230, 92)
         Me.RichTextBox1.TabIndex = 34
@@ -462,7 +511,7 @@ Partial Class Events_page
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(13, 123)
+        Me.Label9.Location = New System.Drawing.Point(13, 279)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(74, 17)
         Me.Label9.TabIndex = 32
@@ -472,7 +521,7 @@ Partial Class Events_page
         '
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(14, 82)
+        Me.TextBox2.Location = New System.Drawing.Point(14, 238)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(230, 29)
         Me.TextBox2.TabIndex = 31
@@ -482,7 +531,7 @@ Partial Class Events_page
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(11, 62)
+        Me.Label8.Location = New System.Drawing.Point(11, 218)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(43, 17)
         Me.Label8.TabIndex = 29
@@ -494,7 +543,7 @@ Partial Class Events_page
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button1.Location = New System.Drawing.Point(14, 266)
+        Me.Button1.Location = New System.Drawing.Point(14, 422)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(230, 37)
         Me.Button1.TabIndex = 27
@@ -547,15 +596,6 @@ Partial Class Events_page
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'TextBox1
-        '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(205, 50)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(38, 29)
-        Me.TextBox1.TabIndex = 53
-        '
         'Events_page
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -595,6 +635,7 @@ Partial Class Events_page
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_event_add.ResumeLayout(False)
         Me.panel_event_add.PerformLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -645,5 +686,8 @@ Partial Class Events_page
     Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
 
 End Class

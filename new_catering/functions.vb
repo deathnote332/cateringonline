@@ -11,7 +11,7 @@ Module functions
     Dim hostName As String = "root"
     Dim hostpassword As String = ""
     Dim dbName As String = "catering"
-    Dim rs As New ADODB.Recordset
+    Public rs As New ADODB.Recordset
 
     Public field As New Dictionary(Of String, String)
 
@@ -62,8 +62,8 @@ Module functions
                     dataList.Add(rs1("event_name").Value)
                     rs1.Close()
                 ElseIf (fieldName.Equals("image")) Then
-                    
-                    dataList.Add(System.Text.Encoding.Unicode.GetString(rs(fieldName).Value))
+
+                    dataList.Add(rs(fieldName).Value)
                 Else
 
                     dataList.Add(rs(fieldName).Value)
@@ -92,11 +92,15 @@ Module functions
         rs.Close()
     End Function
 
-    Public Function Add(fields As Dictionary(Of String, String), tableName As String)
+    Public Function Add(fields As Dictionary(Of String, String), tableName As String, Optional ByVal image As Byte() = Nothing)
         rs.Open("select * from " & tableName & "", connection(), 2, 2)
         rs.AddNew()
         For Each dic As KeyValuePair(Of String, String) In fields
-            rs(dic.Key).Value = dic.Value
+            If (dic.Key.Equals("image")) Then
+                rs(dic.Key).Value = image
+            Else
+                rs(dic.Key).Value = dic.Value
+            End If
         Next
         rs.Update()
         rs.Close()
