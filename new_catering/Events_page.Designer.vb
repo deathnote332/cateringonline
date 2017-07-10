@@ -25,26 +25,20 @@ Partial Class Events_page
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Events_page))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.side_menus = New System.Windows.Forms.Panel()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.active_menu = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.side_pack = New System.Windows.Forms.Panel()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.active_package = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.side_event = New System.Windows.Forms.Panel()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.active_events = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.side_reserv = New System.Windows.Forms.Panel()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.active_reserv = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.side_dash = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.active_dash = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -55,7 +49,6 @@ Partial Class Events_page
         Me.panel_event_add = New System.Windows.Forms.Panel()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -66,28 +59,35 @@ Partial Class Events_page
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label31 = New System.Windows.Forms.Label()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.side_menus.SuspendLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.side_pack.SuspendLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.side_event.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.side_reserv.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.side_dash.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_events.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_event_add.SuspendLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -115,16 +115,6 @@ Partial Class Events_page
         Me.side_menus.Name = "side_menus"
         Me.side_menus.Size = New System.Drawing.Size(200, 61)
         Me.side_menus.TabIndex = 15
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.Image = Global.new_catering.My.Resources.Resources.menu
-        Me.PictureBox7.Location = New System.Drawing.Point(82, 8)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(36, 31)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox7.TabIndex = 21
-        Me.PictureBox7.TabStop = False
         '
         'active_menu
         '
@@ -156,16 +146,6 @@ Partial Class Events_page
         Me.side_pack.Size = New System.Drawing.Size(200, 61)
         Me.side_pack.TabIndex = 14
         '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.new_catering.My.Resources.Resources.delivery_packages_on_a_trolley
-        Me.PictureBox6.Location = New System.Drawing.Point(81, 7)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(36, 31)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 20
-        Me.PictureBox6.TabStop = False
-        '
         'active_package
         '
         Me.active_package.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
@@ -196,16 +176,6 @@ Partial Class Events_page
         Me.side_event.Size = New System.Drawing.Size(200, 61)
         Me.side_event.TabIndex = 13
         '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = Global.new_catering.My.Resources.Resources.wine_glasses
-        Me.PictureBox5.Location = New System.Drawing.Point(81, 7)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(36, 31)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 19
-        Me.PictureBox5.TabStop = False
-        '
         'active_events
         '
         Me.active_events.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
@@ -234,16 +204,6 @@ Partial Class Events_page
         Me.side_reserv.Name = "side_reserv"
         Me.side_reserv.Size = New System.Drawing.Size(200, 61)
         Me.side_reserv.TabIndex = 12
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.new_catering.My.Resources.Resources.reserved
-        Me.PictureBox4.Location = New System.Drawing.Point(81, 8)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(36, 31)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 18
-        Me.PictureBox4.TabStop = False
         '
         'active_reserv
         '
@@ -275,16 +235,6 @@ Partial Class Events_page
         Me.side_dash.Size = New System.Drawing.Size(200, 61)
         Me.side_dash.TabIndex = 11
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.new_catering.My.Resources.Resources.dashboard1
-        Me.PictureBox1.Location = New System.Drawing.Point(82, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(36, 31)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 17
-        Me.PictureBox1.TabStop = False
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -304,16 +254,6 @@ Partial Class Events_page
         Me.active_dash.Size = New System.Drawing.Size(10, 66)
         Me.active_dash.TabIndex = 1
         Me.active_dash.Visible = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(56, 32)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(73, 66)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 7
-        Me.PictureBox3.TabStop = False
         '
         'Label28
         '
@@ -439,17 +379,6 @@ Partial Class Events_page
         Me.TextBox3.Size = New System.Drawing.Size(134, 22)
         Me.TextBox3.TabIndex = 55
         '
-        'PictureBox9
-        '
-        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.InitialImage = Nothing
-        Me.PictureBox9.Location = New System.Drawing.Point(15, 40)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(230, 131)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox9.TabIndex = 54
-        Me.PictureBox9.TabStop = False
-        '
         'TextBox1
         '
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -561,16 +490,6 @@ Partial Class Events_page
         Me.Label30.TabIndex = 26
         Me.Label30.Text = "ADD EVENT"
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.new_catering.My.Resources.Resources._14563315_664050333763710_5032773520106193427_n
-        Me.PictureBox2.Location = New System.Drawing.Point(196, 10)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(68, 53)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 5
-        Me.PictureBox2.TabStop = False
-        '
         'Label31
         '
         Me.Label31.AutoSize = True
@@ -582,6 +501,10 @@ Partial Class Events_page
         Me.Label31.TabIndex = 26
         Me.Label31.Text = "Logout"
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'PictureBox8
         '
         Me.PictureBox8.Image = Global.new_catering.My.Resources.Resources.logout
@@ -592,9 +515,86 @@ Partial Class Events_page
         Me.PictureBox8.TabIndex = 27
         Me.PictureBox8.TabStop = False
         '
-        'OpenFileDialog1
+        'PictureBox9
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.PictureBox9.Image = Global.new_catering.My.Resources.Resources.no_image
+        Me.PictureBox9.InitialImage = Nothing
+        Me.PictureBox9.Location = New System.Drawing.Point(15, 40)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(230, 131)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox9.TabIndex = 54
+        Me.PictureBox9.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.new_catering.My.Resources.Resources._14563315_664050333763710_5032773520106193427_n
+        Me.PictureBox2.Location = New System.Drawing.Point(196, 10)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(68, 53)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 5
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = Global.new_catering.My.Resources.Resources.menu
+        Me.PictureBox7.Location = New System.Drawing.Point(82, 8)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(36, 31)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 21
+        Me.PictureBox7.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.new_catering.My.Resources.Resources.delivery_packages_on_a_trolley
+        Me.PictureBox6.Location = New System.Drawing.Point(81, 7)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(36, 31)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 20
+        Me.PictureBox6.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.new_catering.My.Resources.Resources.wine_glasses
+        Me.PictureBox5.Location = New System.Drawing.Point(81, 7)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(36, 31)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 19
+        Me.PictureBox5.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.new_catering.My.Resources.Resources.reserved
+        Me.PictureBox4.Location = New System.Drawing.Point(81, 8)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(36, 31)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 18
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.new_catering.My.Resources.Resources.dashboard1
+        Me.PictureBox1.Location = New System.Drawing.Point(82, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(36, 31)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 17
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(56, 32)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(73, 66)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 7
+        Me.PictureBox3.TabStop = False
         '
         'Events_page
         '
@@ -616,28 +616,28 @@ Partial Class Events_page
         Me.Panel1.PerformLayout()
         Me.side_menus.ResumeLayout(False)
         Me.side_menus.PerformLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.side_pack.ResumeLayout(False)
         Me.side_pack.PerformLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.side_event.ResumeLayout(False)
         Me.side_event.PerformLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.side_reserv.ResumeLayout(False)
         Me.side_reserv.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.side_dash.ResumeLayout(False)
         Me.side_dash.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_events.ResumeLayout(False)
         Me.panel_events.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_event_add.ResumeLayout(False)
         Me.panel_event_add.PerformLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

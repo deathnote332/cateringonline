@@ -49,24 +49,31 @@ Partial Class menu_page
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.panel_events = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.Label33 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.side_menus.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,11 +87,10 @@ Partial Class menu_page
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel_events.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -347,11 +353,21 @@ Partial Class menu_page
         'panel_events
         '
         Me.panel_events.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panel_events.Controls.Add(Me.LinkLabel2)
+        Me.panel_events.Controls.Add(Me.DataGridView1)
         Me.panel_events.Controls.Add(Me.Label29)
         Me.panel_events.Location = New System.Drawing.Point(196, 70)
         Me.panel_events.Name = "panel_events"
         Me.panel_events.Size = New System.Drawing.Size(642, 473)
         Me.panel_events.TabIndex = 9
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(15, 48)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(610, 401)
+        Me.DataGridView1.TabIndex = 11
         '
         'Label29
         '
@@ -398,23 +414,105 @@ Partial Class menu_page
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.LinkLabel1)
+        Me.Panel2.Controls.Add(Me.TextBox2)
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.TextBox1)
+        Me.Panel2.Controls.Add(Me.ListView1)
         Me.Panel2.Controls.Add(Me.Button5)
         Me.Panel2.Controls.Add(Me.Button4)
         Me.Panel2.Controls.Add(Me.Button3)
-        Me.Panel2.Controls.Add(Me.DataGridView2)
         Me.Panel2.Controls.Add(Me.ComboBox2)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.ComboBox1)
-        Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Label32)
-        Me.Panel2.Controls.Add(Me.TextBox1)
         Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Controls.Add(Me.PictureBox9)
         Me.Panel2.Controls.Add(Me.Label33)
         Me.Panel2.Location = New System.Drawing.Point(851, 70)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(262, 477)
         Me.Panel2.TabIndex = 27
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(215, 48)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(27, 20)
+        Me.TextBox2.TabIndex = 54
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(12, 100)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(70, 17)
+        Me.Label8.TabIndex = 53
+        Me.Label8.Text = "Event Type"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(15, 77)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(228, 20)
+        Me.TextBox1.TabIndex = 52
+        '
+        'ListView1
+        '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.Location = New System.Drawing.Point(15, 243)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(228, 174)
+        Me.ListView1.TabIndex = 51
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Width = 2
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Food Name"
+        Me.ColumnHeader2.Width = 84
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Food Type"
+        Me.ColumnHeader3.Width = 138
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "id"
+        Me.ColumnHeader4.Width = 0
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button5.Location = New System.Drawing.Point(137, 423)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(106, 37)
+        Me.Button5.TabIndex = 50
+        Me.Button5.Text = "DELETE"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button4.Location = New System.Drawing.Point(15, 425)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(109, 37)
+        Me.Button4.TabIndex = 49
+        Me.Button4.Text = "UPDATE"
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button3
         '
@@ -422,27 +520,19 @@ Partial Class menu_page
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button3.Location = New System.Drawing.Point(15, 318)
+        Me.Button3.Location = New System.Drawing.Point(15, 208)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(90, 22)
         Me.Button3.TabIndex = 48
         Me.Button3.Text = "Add Product"
         Me.Button3.UseVisualStyleBackColor = False
         '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(15, 342)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(228, 76)
-        Me.DataGridView2.TabIndex = 47
-        '
         'ComboBox2
         '
         Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(15, 284)
+        Me.ComboBox2.Location = New System.Drawing.Point(15, 174)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(230, 29)
         Me.ComboBox2.TabIndex = 36
@@ -452,7 +542,7 @@ Partial Class menu_page
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(12, 262)
+        Me.Label9.Location = New System.Drawing.Point(12, 152)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 17)
         Me.Label9.TabIndex = 35
@@ -463,43 +553,21 @@ Partial Class menu_page
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(15, 230)
+        Me.ComboBox1.Location = New System.Drawing.Point(15, 120)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(230, 29)
         Me.ComboBox1.TabIndex = 34
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button2.Location = New System.Drawing.Point(13, 182)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 22)
-        Me.Button2.TabIndex = 30
-        Me.Button2.Text = "Browser"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Label32
         '
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.Label32.Location = New System.Drawing.Point(12, 208)
+        Me.Label32.Location = New System.Drawing.Point(10, 48)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(71, 17)
+        Me.Label32.Size = New System.Drawing.Size(70, 17)
         Me.Label32.TabIndex = 29
         Me.Label32.Text = "Event Type"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(109, 182)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(134, 22)
-        Me.TextBox1.TabIndex = 28
         '
         'Button1
         '
@@ -507,22 +575,12 @@ Partial Class menu_page
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button1.Location = New System.Drawing.Point(13, 424)
+        Me.Button1.Location = New System.Drawing.Point(14, 424)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(230, 37)
         Me.Button1.TabIndex = 27
         Me.Button1.Text = "SAVE"
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.Location = New System.Drawing.Point(13, 45)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(230, 131)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox9.TabIndex = 16
-        Me.PictureBox9.TabStop = False
         '
         'Label33
         '
@@ -535,31 +593,30 @@ Partial Class menu_page
         Me.Label33.TabIndex = 26
         Me.Label33.Text = "ADD MENU"
         '
-        'Button4
+        'LinkLabel2
         '
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button4.Location = New System.Drawing.Point(14, 425)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(109, 37)
-        Me.Button4.TabIndex = 49
-        Me.Button4.Text = "UPDATE"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.LinkLabel2.LinkColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.LinkLabel2.Location = New System.Drawing.Point(460, 17)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(165, 12)
+        Me.LinkLabel2.TabIndex = 55
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "DOUBLE CLICK TO UPDATE/DELETE"
         '
-        'Button5
+        'LinkLabel1
         '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.SystemColors.Control
-        Me.Button5.Location = New System.Drawing.Point(136, 423)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(106, 37)
-        Me.Button5.TabIndex = 50
-        Me.Button5.Text = "DELETE"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel1.LinkColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.LinkLabel1.Location = New System.Drawing.Point(190, 52)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(55, 12)
+        Me.LinkLabel1.TabIndex = 56
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Back to Add"
         '
         'menu_page
         '
@@ -597,12 +654,11 @@ Partial Class menu_page
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_events.ResumeLayout(False)
         Me.panel_events.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -639,17 +695,23 @@ Partial Class menu_page
     Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
     Friend WithEvents Label33 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
-
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents ColumnHeader4 As ColumnHeader
+    Friend WithEvents Label8 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

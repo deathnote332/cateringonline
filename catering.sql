@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2017 at 08:44 AM
+-- Generation Time: Jul 10, 2017 at 09:16 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -29,7 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `event_name` varchar(255) NOT NULL,
-  `event_description` varchar(255) NOT NULL
+  `event_description` varchar(255) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `image` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -41,7 +43,21 @@ CREATE TABLE `events` (
 CREATE TABLE `foods` (
   `id` int(11) NOT NULL,
   `food_name` varchar(255) NOT NULL,
+  `food_description` varchar(255) NOT NULL,
   `food_type_id` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `image` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `food_menu`
+--
+
+CREATE TABLE `food_menu` (
+  `id` int(11) NOT NULL,
+  `food_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -65,6 +81,7 @@ CREATE TABLE `food_type` (
 CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
   `menu_name` varchar(255) NOT NULL,
+  `event_id` int(11) NOT NULL,
   `package_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -113,8 +130,13 @@ ALTER TABLE `events`
 --
 ALTER TABLE `foods`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `food_type_id` (`food_type_id`),
-  ADD KEY `menu_id` (`menu_id`);
+  ADD KEY `food_type_id` (`food_type_id`);
+
+--
+-- Indexes for table `food_menu`
+--
+ALTER TABLE `food_menu`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `food_type`
@@ -157,6 +179,11 @@ ALTER TABLE `events`
 ALTER TABLE `foods`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `food_menu`
+--
+ALTER TABLE `food_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `food_type`
 --
 ALTER TABLE `food_type`
@@ -184,8 +211,7 @@ ALTER TABLE `users`
 -- Constraints for table `foods`
 --
 ALTER TABLE `foods`
-  ADD CONSTRAINT `foods_ibfk_1` FOREIGN KEY (`food_type_id`) REFERENCES `food_type` (`id`),
-  ADD CONSTRAINT `foods_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`);
+  ADD CONSTRAINT `foods_ibfk_1` FOREIGN KEY (`food_type_id`) REFERENCES `food_type` (`id`);
 
 --
 -- Constraints for table `menus`

@@ -78,8 +78,7 @@ Public Class Events_page
             PictureBox9.Image = Image.FromStream(ms)
 
         Else
-
-
+            PictureBox9.Image = My.Resources.no_image
         End If
 
         rs.Close()
@@ -125,30 +124,21 @@ Public Class Events_page
     End Function
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        delete("events", TextBox1.Text)
+        delete("events", "where id=" & TextBox1.Text & "")
         MsgBox("Event Successfully deleted", vbInformation, "Success")
 
         loadData()
         backtoAdd()
     End Sub
 
-    ' this is easily used from a class or converted to an extension
-    Public Function ImgToByteArray(img As Image, imgFormat As ImageFormat) As Byte()
-        Dim tmpData As Byte()
-        Using ms As New MemoryStream()
-            img.Save(ms, imgFormat)
 
-            tmpData = ms.ToArray
-        End Using              ' dispose of memstream
-        Return tmpData
-    End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         OpenFileDialog1.Filter = "(Image Files)|*.jpg;*.png;*.bmp;*.gif;*.ico|Jpg, | *.jpg|Png, | *.png|Bmp, | *.bmp|Gif, | *.gif|Ico | *.ico"
         If (OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK) Then
 
             PictureBox9.Image = Image.FromFile(OpenFileDialog1.FileName)
-            TextBox3.Text = OpenFileDialog1.FileName
+            TextBox3.Text = Path.GetFileName(OpenFileDialog1.FileName)
 
         End If
 

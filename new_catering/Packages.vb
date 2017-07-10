@@ -114,7 +114,7 @@
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        delete("packages", TextBox1.Text)
+        delete("packages", "where id=" & TextBox1.Text & "")
         MsgBox("Package Successfully deleted", vbInformation, "Success")
         loadData()
         backtoAdd()

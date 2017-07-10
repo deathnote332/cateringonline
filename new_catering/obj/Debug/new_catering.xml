@@ -52,6 +52,11 @@ new_catering
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:new_catering.My.Resources.Resources.no_image">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:new_catering.My.Resources.Resources.reserved">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

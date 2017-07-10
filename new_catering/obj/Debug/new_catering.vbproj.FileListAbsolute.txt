@@ -66,3 +66,4 @@ C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.vbproj.Genera
 C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.exe
 C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.pdb
 C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.xml
+C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.Food_page.resources
