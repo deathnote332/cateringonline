@@ -61,8 +61,8 @@ Partial Class Reservation
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        '        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        '   Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.panel_calendar = New System.Windows.Forms.Panel()
@@ -301,7 +301,7 @@ Partial Class Reservation
         Me.panel_dash_2.Controls.Add(Me.Label11)
         Me.panel_dash_2.Controls.Add(Me.Panel9)
         Me.panel_dash_2.Controls.Add(Me.Label9)
-        Me.panel_dash_2.Controls.Add(Me.ShapeContainer1)
+        '        Me.panel_dash_2.Controls.Add(Me.ShapeContainer1)
         Me.panel_dash_2.Location = New System.Drawing.Point(850, 72)
         Me.panel_dash_2.Name = "panel_dash_2"
         Me.panel_dash_2.Size = New System.Drawing.Size(262, 473)
@@ -516,21 +516,21 @@ Partial Class Reservation
         '
         'ShapeContainer1
         '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(260, 471)
-        Me.ShapeContainer1.TabIndex = 0
-        Me.ShapeContainer1.TabStop = False
+        '        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
+        '        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        '  Me.ShapeContainer1.Name = "ShapeContainer1"
+        '   Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
+        '        Me.ShapeContainer1.Size = New System.Drawing.Size(260, 471)
+        '  Me.ShapeContainer1.TabIndex = 0
+        '  Me.ShapeContainer1.TabStop = False
         '
         'LineShape1
         '
-        Me.LineShape1.Name = "LineShape1"
-        Me.LineShape1.X1 = -1
-        Me.LineShape1.X2 = 259
-        Me.LineShape1.Y1 = 107
-        Me.LineShape1.Y2 = 107
+        '        Me.LineShape1.Name = "LineShape1"
+        ' Me.LineShape1.X1 = -1
+        '  Me.LineShape1.X2 = 259
+        '  Me.LineShape1.Y1 = 107
+        '  Me.LineShape1.Y2 = 107
         '
         'Label5
         '
@@ -709,8 +709,8 @@ Partial Class Reservation
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
+    ' Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    '  Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label

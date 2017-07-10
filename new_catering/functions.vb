@@ -6,7 +6,7 @@ Module functions
     Public dataFieldName As Array
 
     'connection
-    Public conType As String = "mysql"
+    Public conType As String = "access"
     Dim host As String = "localhost"
     Dim hostName As String = "root"
     Dim hostpassword As String = ""
@@ -27,7 +27,7 @@ Module functions
         If (conType.Equals("mysql")) Then
             con = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=" & host & ";Uid=" & hostName & ";Password=" & hostpassword & ";Database=" & dbName & ""
         ElseIf (conType.Equals("access")) Then
-            con = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\sample.mdb"
+            con = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\xampp\htdocs\cateringonline\sample.mdb"
         End If
         Return con
     End Function

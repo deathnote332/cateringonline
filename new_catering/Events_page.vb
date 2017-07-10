@@ -58,17 +58,28 @@ Public Class Events_page
         TextBox1.Text = DataGridView1.SelectedRows.Item(0).Cells(0).Value
         TextBox2.Text = DataGridView1.SelectedRows.Item(0).Cells(1).Value
         RichTextBox1.Text = DataGridView1.SelectedRows.Item(0).Cells(2).Value
-        
-        rs.Open("select * from events where id=" & DataGridView1.SelectedRows.Item(0).Cells(0).Value & "")
-            Dim pictureData As Byte() = DirectCast(rs("image").Value, Byte())
 
-        If Not (pictureData.Length = 0) Then
-            
+        rs.Open("select * from events where id=" & DataGridView1.SelectedRows.Item(0).Cells(0).Value & "")
+        Dim boolType As Boolean
+
+        If (conType.Equals("access")) Then
+            boolType = IsDBNull(rs("image").Value)
+        Else
+            Dim pictureData As Byte()
+            pictureData = DirectCast(rs("image").Value, Byte())
+            boolType = pictureData.Length = 0
+        End If
+
+
+        If Not (boolType) Then
+            Dim pictureData As Byte()
+            pictureData = DirectCast(rs("image").Value, Byte())
             Dim ms As New MemoryStream(pictureData)
             PictureBox9.Image = Image.FromStream(ms)
 
         Else
-            PictureBox9.Image = System.Drawing.Bitmap.
+
+
         End If
 
         rs.Close()
@@ -137,10 +148,11 @@ Public Class Events_page
         If (OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK) Then
 
             PictureBox9.Image = Image.FromFile(OpenFileDialog1.FileName)
+            TextBox3.Text = OpenFileDialog1.FileName
 
-            
         End If
 
 
     End Sub
+
 End Class
