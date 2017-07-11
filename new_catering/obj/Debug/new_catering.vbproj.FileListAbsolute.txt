@@ -47,14 +47,15 @@ C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_caterin
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.Resources.resources
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.vbproj.GenerateResource.Cache
 C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.exe.config
+C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.exe
+C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.pdb
+C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.xml
+C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.vbprojResolveAssemblyReference.cache
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\Interop.ADODB.dll
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\Interop.ADOMD.dll
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.vbproj.ResolveComReference.cache
-C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.exe
-C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.xml
-C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.pdb
-C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.vbprojResolveAssemblyReference.cache
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.client_reservation.resources
+C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.Food_page.resources
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.menu_page.resources
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.Packages.resources
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.Events_page.resources
@@ -63,7 +64,6 @@ C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.Dashboard.res
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.LoginPage.resources
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.Resources.resources
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.vbproj.GenerateResource.Cache
-C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.exe
-C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.pdb
-C:\xampp\htdocs\cateringonline\new_catering\bin\Debug\new_catering.xml
-C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.Food_page.resources
+C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.exe
+C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.xml
+C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.pdb

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2017 at 09:16 AM
+-- Generation Time: Jul 11, 2017 at 03:36 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -102,6 +102,23 @@ CREATE TABLE `packages` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reservations`
+--
+
+CREATE TABLE `reservations` (
+  `id` int(11) NOT NULL,
+  `reservation_date` date NOT NULL,
+  `event_date` date NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `contact` varchar(50) NOT NULL,
+  `event_type_id` int(11) NOT NULL,
+  `package_id` int(11) NOT NULL,
+  `total_guest` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -159,6 +176,12 @@ ALTER TABLE `packages`
   ADD KEY `event_id` (`event_id`);
 
 --
+-- Indexes for table `reservations`
+--
+ALTER TABLE `reservations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -197,6 +220,11 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `reservations`
+--
+ALTER TABLE `reservations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
