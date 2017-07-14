@@ -6,70 +6,58 @@ new_catering
 </name>
 </assembly>
 <members>
-<member name="T:new_catering.My.Resources.Resources">
-<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member>
 <member name="P:new_catering.My.Resources.Resources.ResourceManager">
-<summary>
+	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.Culture">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.Culture">
+	<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources._14563315_664050333763710_5032773520106193427_n">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources._14563315_664050333763710_5032773520106193427_n">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.dashboard">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.dashboard">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.dashboard1">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.dashboard1">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.delivery_packages_on_a_trolley">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.delivery_packages_on_a_trolley">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.logout">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.logout">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.menu">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.menu">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.no_image">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.no_image">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.reserved">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.reserved">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.side_menu__1_">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.side_menu__1_">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member>
-<member name="P:new_catering.My.Resources.Resources.wine_glasses">
-<summary>
+</member><member name="P:new_catering.My.Resources.Resources.wine_glasses">
+	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:new_catering.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
 </members>

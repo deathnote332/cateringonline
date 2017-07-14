@@ -1,5 +1,7 @@
 ﻿Imports System.Drawing.Imaging
 Imports System.IO
+Imports System.Security.Cryptography
+Imports System.Text
 
 Module functions
 
@@ -7,18 +9,17 @@ Module functions
     Public dataFieldName As Array
 
     'connection
-    Public conType As String = "access"
+    Public conType As String = "mysql"
     Dim host As String = "localhost"
     Dim hostName As String = "root"
     Dim hostpassword As String = ""
     Dim dbName As String = "catering"
     Public rs As New ADODB.Recordset
-
     Public field As New Dictionary(Of String, String)
 
     Public dataGridField As New Dictionary(Of String, Array)
 
-    Public clearField As Array
+    
 
 
     ' Dim con As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\john.inhog\Desktop\sample.mdb"
@@ -29,16 +30,18 @@ Module functions
         If (conType.Equals("mysql")) Then
             con = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=" & host & ";Uid=" & hostName & ";Password=" & hostpassword & ";Database=" & dbName & ""
         ElseIf (conType.Equals("access")) Then
-            con = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\xampp\htdocs\cateringonline\sample.mdb"
+            con = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\sample.mdb"
         End If
         Return con
     End Function
 
-
     Public Function login(username As String, password As String)
-        rs.Open("select * from users where username = '" & username & "' and password='" & password & "'")
+        rs.Open("select * from users where username = '" & username & "' and password='" & password & "'", connection(), 2, 2)
         If Not rs.EOF Then
+
             MsgBox("Login Successfully", vbInformation, "Success")
+            LoginPage.Hide()
+
         Else
             MsgBox("Invalid credentials", vbCritical, "Error")
         End If
@@ -121,6 +124,7 @@ Module functions
         For Each dic As KeyValuePair(Of String, String) In fields
             If (dic.Key.Equals("image")) Then
                 rs(dic.Key).Value = image
+
             Else
                 rs(dic.Key).Value = dic.Value
             End If

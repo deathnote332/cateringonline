@@ -5,13 +5,21 @@
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        Me.Hide()
-        client_reservation.Show()
+
+        client_reservation.ShowDialog()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         login(TextBox1.Text, TextBox2.Text)
+        Dashboard.Show()
+
+
+        'field.Add("username", TextBox1.Text)
+        'field.Add("password", TextBox2.Text)
+        'Add(field, "users")
+        'MsgBox("Successfully Added new reservation", vbInformation, "Success")
+
 
     End Sub
 
