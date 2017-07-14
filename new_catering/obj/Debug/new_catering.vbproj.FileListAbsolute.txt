@@ -48,6 +48,10 @@ C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.vbproj.Genera
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.exe
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.xml
 C:\xampp\htdocs\cateringonline\new_catering\obj\Debug\new_catering.pdb
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.exe.config
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.exe
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.pdb
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.xml
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\Interop.ADODB.dll
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\Interop.ADOMD.dll
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.vbproj.ResolveComReference.cache
@@ -55,11 +59,8 @@ C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_caterin
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.Dashboard.resources
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.LoginPage.resources
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.Resources.resources
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.reservation_viewer.resources
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.vbproj.GenerateResource.Cache
-C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.exe.config
-C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.exe
-C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.pdb
-C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\new_catering.xml
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.exe
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.xml
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.pdb

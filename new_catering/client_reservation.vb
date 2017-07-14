@@ -1,5 +1,5 @@
 ﻿Public Class client_reservation
-
+    Dim getId As Integer
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Hide()
         LoginPage.Show()
@@ -34,6 +34,21 @@
                 Add(field, "reservations")
                 MsgBox("Successfully Added new reservation", vbInformation, "Success")
                 resetForm()
+
+                rs.Open("select * from reservations order by id desc", connection(), 2, 2)
+                getId = rs("id").Value
+                rs.Close()
+
+
+                Dim rpt As New CrystalReport1
+
+                reservation_viewer.CrystalReportViewer1.ReportSource = Nothing
+
+                rs.Open("select * from reservations where id=" & getId & "", connection(), 2, 2)
+                rpt.SetDataSource(rs)
+                reservation_viewer.CrystalReportViewer1.ReportSource = rpt
+
+                reservation_viewer.ShowDialog()
 
 
             End If
