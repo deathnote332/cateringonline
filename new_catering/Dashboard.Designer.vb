@@ -492,7 +492,7 @@ Partial Class Dashboard
         '
         Me.event_panel.Controls.Add(Me.panel_event_add)
         Me.event_panel.Controls.Add(Me.panel_events)
-        Me.event_panel.Location = New System.Drawing.Point(284, 5)
+        Me.event_panel.Location = New System.Drawing.Point(322, 4)
         Me.event_panel.Name = "event_panel"
         Me.event_panel.Size = New System.Drawing.Size(926, 503)
         Me.event_panel.TabIndex = 29
@@ -701,7 +701,7 @@ Partial Class Dashboard
         '
         Me.packages_panel.Controls.Add(Me.Panel7)
         Me.packages_panel.Controls.Add(Me.Panel6)
-        Me.packages_panel.Location = New System.Drawing.Point(315, 1)
+        Me.packages_panel.Location = New System.Drawing.Point(983, 6)
         Me.packages_panel.Name = "packages_panel"
         Me.packages_panel.Size = New System.Drawing.Size(926, 503)
         Me.packages_panel.TabIndex = 30
@@ -1721,8 +1721,8 @@ Partial Class Dashboard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1172, 572)
-        Me.Controls.Add(Me.packages_panel)
         Me.Controls.Add(Me.event_panel)
+        Me.Controls.Add(Me.packages_panel)
         Me.Controls.Add(Me.menus_panel)
         Me.Controls.Add(Me.foods_panel)
         Me.Controls.Add(Me.reservations_panel)
@@ -1843,7 +1843,6 @@ Partial Class Dashboard
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents packages_panel As System.Windows.Forms.Panel
     Friend WithEvents Panel6 As System.Windows.Forms.Panel
-    Friend WithEvents LinkLabel5 As System.Windows.Forms.LinkLabel
     Friend WithEvents packages_dg As System.Windows.Forms.DataGridView
     Friend WithEvents Label36 As System.Windows.Forms.Label
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
@@ -1932,5 +1931,6 @@ Partial Class Dashboard
     Friend WithEvents foods_add_btn As System.Windows.Forms.Button
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents LinkLabel5 As System.Windows.Forms.LinkLabel
 
 End Class

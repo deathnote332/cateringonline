@@ -100,7 +100,7 @@ Partial Class client_reservation
         Me.lname.Location = New System.Drawing.Point(183, 130)
         Me.lname.Name = "lname"
         Me.lname.Size = New System.Drawing.Size(230, 29)
-        Me.lname.TabIndex = 58
+        Me.lname.TabIndex = 2
         '
         'Label6
         '
@@ -121,7 +121,7 @@ Partial Class client_reservation
         Me.venue.MaxLength = 11
         Me.venue.Name = "venue"
         Me.venue.Size = New System.Drawing.Size(230, 29)
-        Me.venue.TabIndex = 6
+        Me.venue.TabIndex = 7
         '
         'Label5
         '
@@ -150,7 +150,7 @@ Partial Class client_reservation
         Me.addons.Location = New System.Drawing.Point(183, 361)
         Me.addons.Name = "addons"
         Me.addons.Size = New System.Drawing.Size(230, 110)
-        Me.addons.TabIndex = 7
+        Me.addons.TabIndex = 8
         Me.addons.Text = ""
         '
         'contact
@@ -161,7 +161,7 @@ Partial Class client_reservation
         Me.contact.MaxLength = 11
         Me.contact.Name = "contact"
         Me.contact.Size = New System.Drawing.Size(230, 29)
-        Me.contact.TabIndex = 2
+        Me.contact.TabIndex = 3
         '
         'Label2
         '
@@ -182,7 +182,7 @@ Partial Class client_reservation
         Me.event_type.Location = New System.Drawing.Point(183, 208)
         Me.event_type.Name = "event_type"
         Me.event_type.Size = New System.Drawing.Size(230, 29)
-        Me.event_type.TabIndex = 3
+        Me.event_type.TabIndex = 4
         '
         'Label1
         '
@@ -204,7 +204,7 @@ Partial Class client_reservation
         Me.Button2.Location = New System.Drawing.Point(81, 474)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(172, 37)
-        Me.Button2.TabIndex = 9
+        Me.Button2.TabIndex = 10
         Me.Button2.Text = "BACK"
         Me.Button2.UseVisualStyleBackColor = False
         '
@@ -225,7 +225,7 @@ Partial Class client_reservation
         Me.Button1.Location = New System.Drawing.Point(281, 474)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(172, 37)
-        Me.Button1.TabIndex = 8
+        Me.Button1.TabIndex = 9
         Me.Button1.Text = "RESERVE NOW!"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -238,7 +238,7 @@ Partial Class client_reservation
         Me.ComboBox3.Location = New System.Drawing.Point(183, 292)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(230, 29)
-        Me.ComboBox3.TabIndex = 5
+        Me.ComboBox3.TabIndex = 6
         '
         'package
         '
@@ -248,7 +248,7 @@ Partial Class client_reservation
         Me.package.Location = New System.Drawing.Point(183, 248)
         Me.package.Name = "package"
         Me.package.Size = New System.Drawing.Size(230, 29)
-        Me.package.TabIndex = 4
+        Me.package.TabIndex = 5
         '
         'fname
         '

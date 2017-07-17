@@ -1,4 +1,6 @@
-﻿Public Class client_reservation
+﻿Imports System.IO
+
+Public Class client_reservation
     Dim getId As Integer
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Hide()
@@ -13,7 +15,7 @@
 
         Else
 
-            rs.Open("select * from  reservations where event_date='" & doe.Value.ToShortDateString & "'", connection(), 2, 2)
+            'rs.Open("select * from  reservations where event_date='" & doe.Value.ToShortDateString & "'", connection(), 2, 2)
             If Not (rs.EOF) Then
                 rs.Close()
 
@@ -26,25 +28,19 @@
                 field.Add("first_name", fname.Text)
                 field.Add("last_name", lname.Text)
                 field.Add("venue", venue.Text)
-                field.Add("contact", fname.Text)
+                field.Add("contact", contact.Text)
                 field.Add("event_id", event_type.SelectedItem.Value)
                 field.Add("package_id", package.SelectedItem.Value)
                 field.Add("total_guest", ComboBox3.Text)
                 field.Add("add_ons", addons.Text)
-                Add(field, "reservations")
+
                 MsgBox("Successfully Added new reservation", vbInformation, "Success")
                 resetForm()
-
-                rs.Open("select * from reservations order by id desc", connection(), 2, 2)
-                getId = rs("id").Value
-                rs.Close()
-
 
                 Dim rpt As New CrystalReport1
 
                 reservation_viewer.CrystalReportViewer1.ReportSource = Nothing
 
-                rs.Open("select * from reservations where id=" & getId & "", connection(), 2, 2)
                 rpt.SetDataSource(rs)
                 reservation_viewer.CrystalReportViewer1.ReportSource = rpt
 
@@ -59,27 +55,49 @@
     End Sub
 
     Private Sub client_reservation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        getCombo("events", event_type)
         resetForm()
     End Sub
 
 
 
     Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles event_type.SelectedIndexChanged
-        getCombo("packages", package, "where event_id=" & event_type.SelectedItem.Value & "")
         ListView1.Visible = False
+
+        rs.Open("select * from events where id=" & event_type.SelectedItem.Value & "")
+        Dim boolType As Boolean
+
+        If (conType.Equals("access")) Then
+            boolType = IsDBNull(rs("image").Value)
+        Else
+            Dim pictureData As Byte()
+            pictureData = DirectCast(rs("image").Value, Byte())
+            boolType = pictureData.Length = 0
+        End If
+
+
+        If Not (boolType) Then
+            Dim pictureData As Byte()
+            pictureData = DirectCast(rs("image").Value, Byte())
+            Dim ms As New MemoryStream(pictureData)
+            PictureBox2.Image = Image.FromStream(ms)
+
+        Else
+            PictureBox2.Image = My.Resources.no_image
+        End If
+
+        rs.Close()
+
 
     End Sub
 
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles package.SelectedIndexChanged
         Dim getMenuId As Integer = 0
-        rs.Open("select * from menus where package_id=" & package.SelectedItem.Value & "", connection(), 2, 2)
+        ' rs.Open("select * from menus where package_id=" & package.SelectedItem.Value & "", connection(), 2, 2)
         getMenuId = rs("id").Value
         rs.Close()
         Label4.Visible = True
         Label4.Text = "Menu of " & package.Text
-        getFood("foods", ListView1, 1, getMenuId)
         PictureBox2.Height = 264
 
         ListView1.Visible = True
@@ -129,6 +147,7 @@
         lname.Text = ""
 
         PictureBox2.Height = 515
+        PictureBox2.Image = My.Resources._14563315_664050333763710_5032773520106193427_n
 
         Return Nothing
     End Function

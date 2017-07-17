@@ -64,3 +64,7 @@ C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_caterin
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.exe
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.xml
 C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.pdb
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\obj\Debug\new_catering.vbprojResolveAssemblyReference.cache
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\new_catering\bin\Debug\Newtonsoft.Json.xml

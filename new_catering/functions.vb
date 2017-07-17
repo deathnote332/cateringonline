@@ -2,6 +2,8 @@
 Imports System.IO
 Imports System.Security.Cryptography
 Imports System.Text
+Imports System.Net
+Imports Newtonsoft.Json.Linq
 
 Module functions
 
@@ -18,37 +20,64 @@ Module functions
     Public field As New Dictionary(Of String, String)
 
     Public dataGridField As New Dictionary(Of String, Array)
+    Private url As String = "http://192.168.254.120/webRequest.php?"
 
-    
 
+    Public Function httpPost(fields As Dictionary(Of String, String), requestUrl As String)
+        Dim request As WebRequest = WebRequest.Create(url & requestUrl)
+        request.Method = "POST"
+        Dim postData As String = ""
 
-    ' Dim con As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\john.inhog\Desktop\sample.mdb"
-    '    Public con As String = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=localhost;Database=catering;Uid=root;Password='';"
+        For Each dic As KeyValuePair(Of String, String) In fields
+            postData += "&" & dic.Key & "=" + dic.Value
+        Next
+        field.Clear()
 
-    Public Function connection()
-        Dim con As String = ""
-        If (conType.Equals("mysql")) Then
-            con = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=" & host & ";Uid=" & hostName & ";Password=" & hostpassword & ";Database=" & dbName & ""
-        ElseIf (conType.Equals("access")) Then
-            con = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Jampol\Documents\Visual Studio 2012\Projects\cateringonline\sample.mdb"
-        End If
-        Return con
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+        request.ContentType = "application/x-www-form-urlencoded"
+        request.ContentLength = byteArray.Length
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(byteArray, 0, byteArray.Length)
+        dataStream.Close()
+        Dim response As WebResponse = request.GetResponse()
+        Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
+        dataStream = response.GetResponseStream()
+        Dim reader As New StreamReader(dataStream)
+        Dim responseFromServer As String = reader.ReadToEnd()
+        reader.Close()
+        dataStream.Close()
+        response.Close()
+        MsgBox(responseFromServer)
+        Return responseFromServer
+
     End Function
 
-    Public Function login(username As String, password As String)
-        rs.Open("select * from users where username = '" & username & "' and password='" & password & "'", connection(), 2, 2)
-        If Not rs.EOF Then
 
-            MsgBox("Login Successfully", vbInformation, "Success")
-            LoginPage.Hide()
 
-        Else
-            MsgBox("Invalid credentials", vbCritical, "Error")
-        End If
-        rs.Close()
+
+    Public Function GETURLREQUEST(URL As String)
+        Dim request As HttpWebRequest
+        Dim response As HttpWebResponse
+        Dim reader As StreamReader
+
+        request = DirectCast(WebRequest.Create(URL), HttpWebRequest)
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        Dim data As String
+        data = reader.ReadToEnd
+
+        Return data
+
     End Function
 
-    Public Function dataGrid(dg As DataGridView, options As Dictionary(Of String, Array), tableName As String, Optional ByVal query As String = "")
+
+    'GET DATA FROM TBLWAITING-DONE
+    Public Function dataGrid1(dg As DataGridView, options As Dictionary(Of String, Array))
+        Dim data = GETURLREQUEST("http://192.168.254.120/webRequest.php?function=getEvent")
+
+
         dg.Columns.Clear()
         For Each colName In options("colName")
             Dim col As New DataGridViewTextBoxColumn
@@ -57,44 +86,16 @@ Module functions
         Next
 
 
-        rs.Open("select * from " & tableName & " " & query & "", connection(), 2, 2)
         dg.Rows.Clear()
-        Do Until rs.EOF
-            Dim dataList As New ArrayList
-            For Each fieldName In options("dataFieldName")
-                If (fieldName.Equals("event_id")) Then
-                    Dim rs1 As New ADODB.Recordset
-                    rs1.Open("select * from events where id=" & rs(fieldName).Value & "", connection(), 2, 2)
-                    dataList.Add(rs1("event_name").Value)
-                    rs1.Close()
-                ElseIf (fieldName.Equals("food_type_id")) Then
-                    Dim rs1 As New ADODB.Recordset
-                    rs1.Open("select * from food_type where id=" & rs(fieldName).Value & "", connection(), 2, 2)
-                    dataList.Add(rs1("food_type").Value)
-                    rs1.Close()
-                ElseIf (fieldName.Equals("event_id")) Then
-                    Dim rs1 As New ADODB.Recordset
-                    rs1.Open("select * from events where id=" & rs(fieldName).Value & "", connection(), 2, 2)
-                    dataList.Add(rs1("event_name").Value)
-                    rs1.Close()
-                ElseIf (fieldName.Equals("package_id")) Then
-                    Dim rs1 As New ADODB.Recordset
-                    rs1.Open("select * from packages where id=" & rs(fieldName).Value & "", connection(), 2, 2)
-                    dataList.Add(rs1("package_name").Value)
-                    rs1.Close()
-                ElseIf (fieldName.Equals("image")) Then
 
-                    dataList.Add(rs(fieldName).Value)
-                Else
+        Dim datas As JArray = JArray.Parse(data)
+        For Each jtoken As JToken In datas
+            dg.Rows.Add(jtoken("id"), jtoken("event_name"), jtoken("file_name"), jtoken("event_description"), jtoken("image"))
 
-                    dataList.Add(rs(fieldName).Value)
-                End If
+        Next
 
-            Next
-            dg.Rows.Add(dataList.ToArray)
-            rs.MoveNext()
-        Loop
-        rs.Close()
+
+
         options.Clear()
         dg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dg.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -105,138 +106,8 @@ Module functions
         dg.AllowUserToResizeRows = False
 
 
+        Return Nothing
     End Function
 
-
-    Public Function delete(tableName As String, Optional ByVal query As String = "")
-        rs.Open("select * from " & tableName & " " & query & "", connection(), 2, 2)
-        Do Until rs.EOF
-            rs.Delete()
-            rs.Update()
-            rs.MoveNext()
-        Loop
-        rs.Close()
-    End Function
-
-    Public Function Add(fields As Dictionary(Of String, String), tableName As String, Optional ByVal image As Byte() = Nothing)
-        rs.Open("select * from " & tableName & "", connection(), 2, 2)
-        rs.AddNew()
-        For Each dic As KeyValuePair(Of String, String) In fields
-            If (dic.Key.Equals("image")) Then
-                rs(dic.Key).Value = image
-
-            Else
-                rs(dic.Key).Value = dic.Value
-            End If
-        Next
-        rs.Update()
-        rs.Close()
-        fields.Clear()
-    End Function
-
-    Public Function Updates(fields As Dictionary(Of String, String), tableName As String, Optional ByVal query As String = "", Optional ByVal image As Byte() = Nothing)
-        rs.Open("select * from " & tableName & " " & query & "", connection(), 2, 2)
-        For Each dic As KeyValuePair(Of String, String) In fields
-            If (dic.Key.Equals("image")) Then
-                rs(dic.Key).Value = image
-            Else
-                rs(dic.Key).Value = dic.Value
-            End If
-        Next
-        rs.Update()
-        rs.Close()
-        fields.Clear()
-    End Function
-
-
-    Public Function getCombo(tableName As String, cb As ComboBox, Optional ByVal query As String = "", Optional ByVal customItem As String = "")
-        Dim combodic As New Dictionary(Of String, String)
-
-        rs.Open("select * from " & tableName & " " & query & "", connection(), 2, 2)
-        cb.Items.Clear()
-
-
-        If Not (customItem.Equals("")) Then
-            cb.Items.Add(New DictionaryEntry(customItem, 0))
-        End If
-
-        Do Until rs.EOF
-            If (tableName.Equals("food_type")) Then
-                cb.Items.Add(New DictionaryEntry(rs("food_type").Value(), rs("id").Value()))
-            Else
-                cb.Items.Add(New DictionaryEntry(rs("" & tableName.Substring(0, tableName.Length - 1) & "_name").Value(), rs("id").Value()))
-            End If
-            rs.MoveNext()
-        Loop
-        cb.DisplayMember = "Key"
-        cb.ValueMember = "Value"
-
-
-
-        rs.Close()
-
-    End Function
-
-    Public Function getFood(tableName As String, lvt As Windows.Forms.ListView, Optional ByVal join As Integer = 0, Optional ByVal menu_id As String = "")
-
-        If (join = 0) Then
-            rs.Open("select * from " & tableName & "", connection(), 2, 2)
-            lvt.Items.Clear()
-
-            Do Until rs.EOF
-                Dim lvItem As New ListViewItem
-                lvItem.SubItems.Add("" & rs("" & tableName.Substring(0, tableName.Length - 1) & "_name").Value())
-                Dim rs1 As New ADODB.Recordset
-                rs1.Open("select * from food_type where id=" & rs("food_type_id").Value & "", connection(), 2, 2)
-                lvItem.SubItems.Add("" & rs1("food_type").Value())
-
-                rs1.Close()
-                lvItem.SubItems.Add("" & rs("id").Value())
-
-                lvt.Items.Add(lvItem)
-                rs.MoveNext()
-            Loop
-            rs.Close()
-        Else
-            Dim rs2 As New ADODB.Recordset
-            rs2.Open("select * from food_menu where menu_id=" & menu_id & "", connection(), 2, 2)
-            lvt.Items.Clear()
-            Do Until rs2.EOF
-                rs.Open("select * from " & tableName & " where id=" & rs2("food_id").Value & "", connection(), 2, 2)
-
-
-                Do Until rs.EOF
-                    Dim lvItem As New ListViewItem
-                    lvItem.SubItems.Add("" & rs("" & tableName.Substring(0, tableName.Length - 1) & "_name").Value())
-                    Dim rs1 As New ADODB.Recordset
-                    rs1.Open("select * from food_type where id=" & rs("food_type_id").Value & "", connection(), 2, 2)
-                    lvItem.SubItems.Add("" & rs1("food_type").Value())
-
-                    rs1.Close()
-                    lvItem.SubItems.Add("" & rs("id").Value())
-
-                    lvt.Items.Add(lvItem)
-                    rs.MoveNext()
-                Loop
-                rs.Close()
-
-                rs2.MoveNext()
-            Loop
-            rs2.Close()
-        End If
-
-    End Function
-
-
-    ' this is easily used from a class or converted to an extension
-    Public Function ImgToByteArray(img As Image, imgFormat As ImageFormat) As Byte()
-        Dim tmpData As Byte()
-        Using ms As New MemoryStream()
-            img.Save(ms, imgFormat)
-
-            tmpData = ms.ToArray
-        End Using              ' dispose of memstream
-        Return tmpData
-    End Function
 
 End Module
