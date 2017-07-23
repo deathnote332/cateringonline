@@ -160,6 +160,7 @@ Partial Class Dashboard
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.foods_dg = New System.Windows.Forms.DataGridView()
         Me.Label57 = New System.Windows.Forms.Label()
+        Me.img_path = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.side_menus.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -651,6 +652,7 @@ Partial Class Dashboard
         'panel_events
         '
         Me.panel_events.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.panel_events.Controls.Add(Me.img_path)
         Me.panel_events.Controls.Add(Me.LinkLabel3)
         Me.panel_events.Controls.Add(Me.events_dg)
         Me.panel_events.Controls.Add(Me.Label32)
@@ -1716,6 +1718,15 @@ Partial Class Dashboard
         Me.Label57.TabIndex = 10
         Me.Label57.Text = "FOODS"
         '
+        'img_path
+        '
+        Me.img_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.img_path.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.img_path.Location = New System.Drawing.Point(600, 4)
+        Me.img_path.Name = "img_path"
+        Me.img_path.Size = New System.Drawing.Size(134, 22)
+        Me.img_path.TabIndex = 57
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1932,5 +1943,6 @@ Partial Class Dashboard
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents LinkLabel5 As System.Windows.Forms.LinkLabel
+    Friend WithEvents img_path As System.Windows.Forms.TextBox
 
 End Class

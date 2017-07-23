@@ -24,6 +24,7 @@ Public Class Dashboard
 
     Public Function loadDataReservations()
         dataGridField.Add("colName", {"ID", "Client Lastname", "Client Firstname", "Contact #", "Reservation Date", "Date of Event", "Venue", "Event", "Package", "Total Guest", "add_ons"})
+        getReservation(reservations_dg, dataGridField)
         reservations_dg.Columns(0).Visible = False
         reservations_dg.Columns(10).Visible = False
 
@@ -31,12 +32,14 @@ Public Class Dashboard
         Return Nothing
     End Function
 
-    
+
 
     Private Sub reservations_dg_DoubleClick(sender As Object, e As EventArgs) Handles reservations_dg.DoubleClick
 
         If Not reservations_dg.Rows.Count = 0 Then
-            reservations_initials.Text = reservations_dg.SelectedRows.Item(0).Cells(2).Value(0) & reservations_dg.SelectedRows.Item(0).Cells(1).Value(0)
+            Dim fname As String = reservations_dg.SelectedRows.Item(0).Cells(2).Value().ToString
+            Dim lname As String = reservations_dg.SelectedRows.Item(0).Cells(1).Value().ToString
+            reservations_initials.Text = fname(0) & lname(0)
             reservations_id.Text = reservations_dg.SelectedRows.Item(0).Cells(0).Value
             reservations_name.Text = reservations_dg.SelectedRows.Item(0).Cells(2).Value & " " & reservations_dg.SelectedRows.Item(0).Cells(1).Value
             reservations_venue.Text = reservations_dg.SelectedRows.Item(0).Cells(6).Value
@@ -56,9 +59,9 @@ Public Class Dashboard
 
         If Not (reservations_id.Text = "") Then
             If (MsgBox("Are you sure you want to cancel this reservation?", vbQuestion + vbYesNo, "CANCEL RESERVATION") = vbYes) Then
-
-                MsgBox("Successfully cancel a reservation", vbInformation, "Success")
-
+                field.Add("id", reservations_id.Text)
+                field.Add("table_name", "reservations")
+                deletes(field)
                 loadDataReservations()
                 clearReservation()
 
@@ -103,7 +106,7 @@ Public Class Dashboard
 
     Public Function loadDataEvents()
         dataGridField.Add("colName", {"ID", "Event Name", "File Name", "Inclusions", "image"})
-        dataGrid1(events_dg, dataGridField)
+        getEvent(events_dg, dataGridField)
         events_dg.Columns(0).Visible = False
         events_dg.Columns(3).Visible = False
         events_dg.Columns(4).Visible = False
@@ -159,8 +162,7 @@ Public Class Dashboard
 
                 httpPost(field, "saveEvent")
                 backtoAddEvents()
-                MsgBox("Event Successfully Added", vbInformation, "Success")
-
+                
                 loadDataEvents()
 
             End If
@@ -196,7 +198,7 @@ Public Class Dashboard
                 events_picture.Image = Image.FromFile(events_dg.SelectedRows.Item(0).Cells(4).Value)
 
             End If
-            
+            img_path.Text = events_dg.SelectedRows.Item(0).Cells(4).Value
         End If
 
 
@@ -210,19 +212,34 @@ Public Class Dashboard
             events_name.Focus()
         Else
 
-            If (MsgBox("Are you sure you want to update this event?", vbQuestion + vbYesNo, "UPDATE EVENT") = vbYes) Then
-
+            If (MsgBox("Are you sure you want to update this event?", vbQuestion + vbYesNo, "ADD EVENT") = vbYes) Then
+                field.Add("id", events_id.Text)
                 field.Add("event_name", events_name.Text)
                 field.Add("event_description", events_inclusions.Text)
-                field.Add("image", "")
                 field.Add("file_name", events_filename.Text)
 
-                '       Updates(field, "events", "where id=" & events_id.Text & "", ImgToByteArray(events_picture.Image, ImageFormat.Jpeg))
+
+                'MOVE FILE IF SELECTED
+                If (isSelectedFile >= 1) Then
+                    If Not (File.Exists(Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))) Then
+
+                        FileCopy(filename, Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                        isSelectedFile = 0
+                    End If
+                    field.Add("image", Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+
+                Else
+                    field.Add("image", img_path.Text)
+                End If
+
+
+                httpPost(field, "updateEvent")
                 backtoAddEvents()
-                MsgBox("Event Successfully updated", vbInformation, "Success")
 
                 loadDataEvents()
+
             End If
+
         End If
 
 
@@ -272,6 +289,8 @@ Public Class Dashboard
         backToAddPackages()
 
         dataGridField.Add("colName", {"Id", "Event Name", "Package Name", "Price per head"})
+        getPackage(packages_dg, dataGridField)
+        getComboEventName(packages_cb1)
         packages_dg.Columns(0).Visible = False
         Return Nothing
     End Function
@@ -287,7 +306,7 @@ Public Class Dashboard
                 field.Add("event_id", packages_cb1.SelectedItem.Value)
                 field.Add("package_name", packages_name.Text)
                 field.Add("price_head", packages_perhead.Text)
-                MsgBox("Package Successfully added", vbInformation, "Success")
+                httpPost(field, "savePackage")
                 loadDataPackages()
 
                 backToAddPackages()
@@ -337,10 +356,11 @@ Public Class Dashboard
         Else
 
             If (MsgBox("Are you sure you want to add this package?", vbQuestion + vbYesNo, "ADD EVENT") = vbYes) Then
+                field.Add("id", packages_id.Text)
                 field.Add("event_id", packages_cb1.SelectedItem.Value)
                 field.Add("package_name", packages_name.Text)
                 field.Add("price_head", packages_perhead.Text)
-                MsgBox("Package Successfully updated", vbInformation, "Success")
+                httpPost(field, "updatePackage")
                 loadDataPackages()
 
                 backToAddPackages()
@@ -393,8 +413,13 @@ Public Class Dashboard
 
     Public Function loadDataMenus()
         dataGridField.Add("colName", {"ID", "Menu Name", "Event Name", "Package Name"})
-        dataGridField.Add("dataFieldName", {"id", "menu_name", "event_id", "package_id"})
+
+        'dataGridField.Add("dataFieldName", {"id", "menu_name", "event_id", "package_id"})
+        getMenu(menus_dg, dataGridField)
         menus_dg.Columns(0).Visible = False
+
+        getComboEventName(menus_cb1)
+        getComboPackageName(menus_cb2)
 
         
         backToAddMenus()
@@ -423,6 +448,7 @@ Public Class Dashboard
 
     Private Sub menus_cb1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles menus_cb1.SelectedIndexChanged
         listCount = menus_list.Items.Count
+        getFoodList(menus_list)
     End Sub
 
     Private Sub menus_add_btn_Click(sender As Object, e As EventArgs) Handles menus_add_btn.Click
@@ -435,22 +461,14 @@ Public Class Dashboard
                 field.Add("menu_name", menus_name.Text)
                 field.Add("event_id", menus_cb1.SelectedItem.Value)
                 field.Add("package_id", menus_cb2.SelectedItem.Value)
-                'Add(field, "menus")
-
-                Dim getLastID As Integer = 0
-                'rs.Open("select * from menus order by id desc", connection(), 2, 2)
-                getLastID = rs("id").Value
-                rs.Close()
-
+                httpPost(field, "saveMenu")
 
                 For i As Integer = 0 To menus_list.SelectedItems.Count - 1
                     field.Add("food_id", menus_list.SelectedItems(i).SubItems(3).Text)
-                    field.Add("menu_id", getLastID)
-                    '        Add(field, "food_menu")
+                    httpPost(field, "addFoodMenu")
                 Next
 
-                MsgBox("Menu Successfully added", vbInformation, "Success")
-
+                
                 loadDataMenus()
 
             End If
@@ -546,12 +564,13 @@ Public Class Dashboard
 
 
     Public Function loadDataFoods()
-        dataGridField.Add("colName", {"ID", "Food Type", "Food Name", "Food Description", "FILE"})
-        dataGridField.Add("dataFieldName", {"id", "food_type_id", "food_name", "food_description", "file_name"})
-        '  DataGrid(foods_dg, dataGridField, "foods")
+        dataGridField.Add("colName", {"ID", "Food Type", "Food Name", "Food Description", "FILE", "Image"})
+        'dataGridField.Add("dataFieldName", {"id", "food_type_id", "food_name", "food_description", "file_name"})
+        getFood(foods_dg, dataGridField)
         foods_dg.Columns(0).Visible = False
         foods_dg.Columns(4).Visible = False
-
+        foods_dg.Columns(5).Visible = False
+        getComboFoodType(foods_cb1)
 
         '  getCombo("food_type", foods_cb1)
         backtoAddFoods()
@@ -579,13 +598,15 @@ Public Class Dashboard
 
 
     Private Sub foods_browse_Click(sender As Object, e As EventArgs) Handles foods_browse.Click
+        filename = ""
         OpenFileDialog1.Filter = "(Image Files)|*.jpg;*.png;*.bmp;*.gif;*.ico|Jpg, | *.jpg|Png, | *.png|Bmp, | *.bmp|Gif, | *.gif|Ico | *.ico"
         If (OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK) Then
-
+            isSelectedFile = isSelectedFile + 1
+            filename = OpenFileDialog1.FileName
             foods_picture.Image = Image.FromFile(OpenFileDialog1.FileName)
             foods_filename.Text = Path.GetFileName(OpenFileDialog1.FileName)
-
         End If
+
     End Sub
 
     Private Sub foods_add_btn_Click(sender As Object, e As EventArgs) Handles foods_add_btn.Click
@@ -599,12 +620,26 @@ Public Class Dashboard
                 field.Add("food_name", foods_name.Text)
                 field.Add("food_type_id", foods_cb1.SelectedItem.Value)
                 field.Add("food_description", foods_description.Text)
-                field.Add("image", "")
                 field.Add("file_name", foods_filename.Text)
                 '     Add(field, "foods", ImgToByteArray(foods_picture.Image, ImageFormat.Jpeg))
 
 
-                MsgBox("Food Successfully added", vbInformation, "Success")
+
+                'MOVE FILE IF SELECTED
+                If (isSelectedFile >= 1) Then
+                    If Not (File.Exists(Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))) Then
+
+                        FileCopy(filename, Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                        isSelectedFile = 0
+                    End If
+                    field.Add("image", Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+
+                Else
+                    field.Add("image", "")
+                End If
+
+
+                httpPost(field, "saveFood")
                 loadDataFoods()
 
             End If
@@ -624,14 +659,28 @@ Public Class Dashboard
         Else
             If (MsgBox("Are you sure you want to update this food?", vbQuestion + vbYesNo, "ADD FOOD") = vbYes) Then
 
+                field.Add("id", foods_id.Text)
 
                 field.Add("food_name", foods_name.Text)
                 field.Add("food_type_id", foods_cb1.SelectedItem.Value)
                 field.Add("food_description", foods_description.Text)
-                field.Add("image", "")
                 field.Add("file_name", foods_filename.Text)
-                '        Updates(field, "foods", "where id=" & foods_id.Text & "", ImgToByteArray(foods_picture.Image, ImageFormat.Jpeg))
-                MsgBox("Food Successfully updated", vbInformation, "Success")
+
+
+
+                'MOVE FILE IF SELECTED
+                If (isSelectedFile >= 1) Then
+                    If Not (File.Exists(Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))) Then
+
+                        FileCopy(filename, Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                        isSelectedFile = 0
+                    End If
+                    field.Add("image", Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+
+                Else
+                    field.Add("image", img_path.Text)
+                End If
+                httpPost(field, "updateFood")
 
                 loadDataFoods()
 
@@ -642,8 +691,9 @@ Public Class Dashboard
     Private Sub foods_delete_btn_Click(sender As Object, e As EventArgs) Handles foods_delete_btn.Click
         If (MsgBox("Are you sure you want to delete this food?", vbQuestion + vbYesNo, "DELETE FOOD") = vbYes) Then
 
-            '    delete("foods", "where id=" & foods_id.Text & "")
-            MsgBox("Food Successfully deleted", vbInformation, "Success")
+            field.Add("id", foods_id.Text)
+            field.Add("table_name", "foods")
+            deletes(field)
             loadDataFoods()
         End If
 
@@ -673,33 +723,17 @@ Public Class Dashboard
             foods_cb1.Text = foods_dg.SelectedRows.Item(0).Cells(1).Value
             foods_name.Text = foods_dg.SelectedRows.Item(0).Cells(2).Value
             foods_description.Text = foods_dg.SelectedRows.Item(0).Cells(3).Value
-            foods_filename.Text = foods_dg.SelectedRows.Item(0).Cells(4).Value
+            foods_filename.Text = Path.GetFileName(foods_dg.SelectedRows.Item(0).Cells(4).Value)
 
 
-            rs.Open("select * from foods where id=" & foods_id.Text & "")
-            Dim boolType As Boolean
-
-            If (conType.Equals("access")) Then
-                boolType = IsDBNull(rs("image").Value)
-            Else
-                Dim pictureData As Byte()
-                pictureData = DirectCast(rs("image").Value, Byte())
-                boolType = pictureData.Length = 0
-            End If
-
-
-            If Not (boolType) Then
-                Dim pictureData As Byte()
-                pictureData = DirectCast(rs("image").Value, Byte())
-                Dim ms As New MemoryStream(pictureData)
-                foods_picture.Image = Image.FromStream(ms)
-
-            Else
+            If (foods_dg.SelectedRows.Item(0).Cells(5).Value).ToString.Equals("") Then
                 foods_picture.Image = My.Resources.no_image
+
+            Else
+                foods_picture.Image = Image.FromFile(foods_dg.SelectedRows.Item(0).Cells(5).Value)
+
             End If
-
-            rs.Close()
-
+            img_path.Text = foods_dg.SelectedRows.Item(0).Cells(5).Value
             foods_delete_btn.Visible = True
             foods_update_btn.Visible = True
             foods_add_btn.Visible = False
