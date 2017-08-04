@@ -81,6 +81,9 @@ switch($function){
 		 getFoodFromEventPackage();
 		 break;
 
+	case 'login';
+		login();
+		break;
 
 
 }
@@ -296,7 +299,7 @@ function saveMenu(){
 
 function getMenu(){
     $con = mysqli_connect("localhost","root","","catering");
-    $str ="select * from menus inner join events on events.id =  event_id inner join packages on packages.id = package_id";
+    $str ="select menus.*,events.event_name,packages.package_name from menus inner join events on events.id =  event_id inner join packages on packages.id = package_id";
     $data = mysqli_query($con,$str);
 	$getData= array();
     while($row = mysqli_fetch_assoc($data)){
@@ -351,8 +354,9 @@ function getEventimage(){
 function saveReservation(){
 	
 	$con = mysqli_connect("localhost","root","","catering");
-	$reservation_date = $_POST['reservation_date'];
+	$reservation_date = date('Y-m-d H:i:s');;
 	$event_date = $_POST['event_date'];
+	$edate = date('Y-m-d H:i:s', strtotime($event_date));
 	$venue = $_POST['venue'];
 	$last_name = $_POST['last_name'];
 	$first_name = $_POST['first_name'];
@@ -362,11 +366,23 @@ function saveReservation(){
 	$total_guest = $_POST['total_guest'];
 	$add_ons = $_POST['add_ons'];
 	
-	$strGet="insert into reservations(reservation_date,event_date,venue,last_name,first_name,contact,event_id,package_id,total_guest,add_ons)
-			values('$reservation_date','$event_date','$venue','$last_name','$first_name','$contact','$event_id','$package_id','$total_guest','$add_ons')";
-	if(mysqli_query($con,$strGet)){
-		echo "Successfully added reservation";
-	}
+	$strCheckExistingEventDate = "select * from reservations where event_date = '$edate'"; 
+	$ifSame = mysqli_query($con,$strCheckExistingEventDate);
+	$same = false;
+    while($row = mysqli_fetch_assoc($ifSame)){
+        $same = true;
+    }
+    if($same){
+        $message= "Existing reservation date";
+    }else{
+		
+		$strGet="insert into reservations(reservation_date,event_date,venue,last_name,first_name,contact,event_id,package_id,total_guest,add_ons)
+			values('$reservation_date','$edate','$venue','$last_name','$first_name','$contact','$event_id','$package_id','$total_guest','$add_ons')";
+		mysqli_query($con,$strGet);
+		$message =  "Successfully added reservation";
+    }
+
+    echo $message;
 
 }
 
@@ -391,10 +407,20 @@ function getFoodFromEventPackage(){
 	$con = mysqli_connect("localhost","root","","catering");
 	$event_id = $_POST['event_id'];
 	$package_id = $_POST['package_id'];
-	$strGet = "select foods.*,food_type.food_type from menus inner join food_menu on menus.id = food_menu.menu_id 
+	$menu_id = $_POST['menu_id'];
+	
+	if($menu_id == ""){
+		$strGet = "select foods.*,food_type.food_type from menus inner join food_menu on menus.id = food_menu.menu_id 
 				inner join foods on foods.id = food_menu.food_id 
 				inner join food_type on foods.food_type_id = food_type.id
 				where menus.event_id = '$event_id' and menus.package_id='$package_id'";
+	}else{
+		$strGet = "select foods.*,food_type.food_type from menus inner join food_menu on menus.id = food_menu.menu_id 
+				inner join foods on foods.id = food_menu.food_id 
+				inner join food_type on foods.food_type_id = food_type.id
+				where menus.event_id = '$event_id' and menus.package_id='$package_id' and menus.id= '$menu_id'";
+	}
+	
 	
 	$getPackage = mysqli_query($con,$strGet);
 	$getData= array();
@@ -402,6 +428,52 @@ function getFoodFromEventPackage(){
         $getData[] = $row;
     }
     echo json_encode($getData);
+	
+	
+}
+
+function getInclusions(){
+	
+	$con = mysqli_connect("localhost","root","","catering");
+	$event_id = $_POST['event_id'];
+	
+	$strGet = "select event_description from events where id = '$event_id'";
+	
+	$getPackage = mysqli_query($con,$strGet);
+	$getData= array();
+    while($row = mysqli_fetch_assoc($getPackage)){
+        $getData[] = $row;
+    }
+    echo json_encode($getData);
+	
+	
+}
+
+
+function login(){
+	
+	$con = mysqli_connect("localhost","root","","catering");
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+   
+	$strLogin = "select * from users where username = '$username' and password = '$password'";
+    $ifSame = mysqli_query($con,$strLogin);
+    $same = false;
+	$userType = 0;
+	$data = array();
+    while($row = mysqli_fetch_assoc($ifSame)){
+        $same = true;
+		$data[] = $row;
+		
+    }
+    if($same){
+        $message= json_encode($data);
+    }else{
+     
+        $message = "Invalid credentials";
+    }
+
+    echo $message;
 	
 	
 }

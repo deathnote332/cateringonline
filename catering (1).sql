@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2017 at 02:42 PM
+-- Generation Time: Aug 05, 2017 at 01:21 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -39,16 +39,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `event_name`, `event_description`, `file_name`, `image`) VALUES
-(1, 'Wedding events', 'asdasd\nasdasd\nasdasd\nasdasd\nasdasd\nasdasd\n', 'YLIA.jpg', 'C:\\Users\\Jampol\\Documents\\Visual Studio 2012\\Projects\\cateringonline\\new_catering\\bin\\Debug/images/YLIA.jpg'),
-(2, 'asdasd', 'asdasd', 'wewe.jpg', 'C:\\Users\\Jampol\\Documents\\Visual Studio 2012\\Projects\\cateringonline\\new_catering\\bin\\Debug/images/wewe.jpg'),
-(3, 'Test23', 'dasda', 'wewe.jpg', 'C:\\Users\\Jampol\\Documents\\Visual Studio 2012\\Projects\\cateringonline\\new_catering\\bin\\Debug/images/wewe.jpg'),
-(5, 'Test', 'asda', '', ''),
-(6, 'Test', '', '', ''),
-(7, 'Test', 'asda', '', ''),
-(8, 'dasda', 'asdasd', 'YLIA.jpg', 'C:\\Users\\Jampol\\Documents\\Visual Studio 2012\\Projects\\cateringonline\\new_catering\\bin\\Debug/images/YLIA.jpg'),
-(9, 'dasd', 'asdasd', 'aasddasd', 'C:\\Users\\Jampol\\Documents\\Visual Studio 2012\\Projects\\cateringonline\\new_catering\\bin\\Debug/images/wewe.jpg'),
-(10, '', '', '', ''),
-(11, 'pakyu', 'RoiPogi', '', '');
+(14, 'Wedding Event', 'Chairs\nTables', '', '');
 
 -- --------------------------------------------------------
 
@@ -70,10 +61,8 @@ CREATE TABLE `foods` (
 --
 
 INSERT INTO `foods` (`id`, `food_name`, `food_description`, `food_type_id`, `file_name`, `image`) VALUES
-(1, 'sd123', 'dasd', 1, 'wewe.jpg', 'C:\\Users\\Jampol\\Documents\\Visual Studio 2012\\Projects\\cateringonline\\new_catering\\bin\\Debug/images/wewe.jpg'),
-(2, 'TEST', 'asdasd', 2, '', ''),
-(3, 'Hotdogs', '123', 2, '', ''),
-(4, 'Adobo', 'Adobong maalata', 1, '', '');
+(5, 'Hotdog', 'Cheesy hotdogs', 1, '', ''),
+(6, 'Port', 'Test', 3, '', '');
 
 -- --------------------------------------------------------
 
@@ -92,12 +81,7 @@ CREATE TABLE `food_menu` (
 --
 
 INSERT INTO `food_menu` (`id`, `food_id`, `menu_id`) VALUES
-(6, 2, 2),
-(7, 3, 2),
-(8, 2, 2),
-(9, 3, 2),
-(10, 2, 3),
-(11, 3, 3);
+(1, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -140,9 +124,7 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `menu_name`, `event_id`, `package_id`) VALUES
-(1, 'Menu for silver package', 1, 1),
-(2, 'asdasd', 1, 1),
-(3, 'dsad', 9, 1);
+(4, 'Hotdogs for wedding', 14, 11);
 
 -- --------------------------------------------------------
 
@@ -162,14 +144,7 @@ CREATE TABLE `packages` (
 --
 
 INSERT INTO `packages` (`id`, `package_name`, `price_head`, `event_id`) VALUES
-(1, 'Silver Packages', 200.00, 1),
-(2, 'Test 123', 250.00, 1),
-(3, 'asd', 0.00, 1),
-(4, 'asd', 123.00, 1),
-(5, 'd', 2.00, 2),
-(8, 'qweqwe', 123.00, 1),
-(9, 'Silver Package', 2001.00, 1),
-(10, 'Silver Packags', 213.00, 1);
+(11, 'Singe package', 250.00, 14);
 
 -- --------------------------------------------------------
 
@@ -179,8 +154,8 @@ INSERT INTO `packages` (`id`, `package_name`, `price_head`, `event_id`) VALUES
 
 CREATE TABLE `reservations` (
   `id` int(11) NOT NULL,
-  `reservation_date` date NOT NULL,
-  `event_date` varchar(255) NOT NULL,
+  `reservation_date` datetime NOT NULL,
+  `event_date` datetime NOT NULL,
   `venue` varchar(255) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -196,13 +171,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `reservation_date`, `event_date`, `venue`, `first_name`, `last_name`, `contact`, `event_id`, `package_id`, `total_guest`, `add_ons`) VALUES
-(2, '0000-00-00', '9/1/2017', 'Pasig City', 'Roi Aldrin', 'Macuana', '09101238123', 1, 1, 50, 'asdas\ndasd\nasd\nasd\nas\ndas\nda\nsda\nsd\n'),
-(3, '0000-00-00', '9/1/2017', '123', 'asdasd', 'asdas', '23123', 1, 1, 50, 'wdasda'),
-(4, '0000-00-00', '9/1/2017', '12231', 'ASdasd', 'asdasd', '23123', 1, 1, 50, '13123\n12312\n'),
-(5, '0000-00-00', '9/1/2017', '1231', 'asdasd', 'sdaasd23', '123123', 1, 1, 100, '1321\n23'),
-(6, '0000-00-00', '9/1/2017', '12312', 'dasd', 'asdasd', '1223', 1, 1, 50, '13123'),
-(7, '0000-00-00', '9/1/2017', 'asda', 'dasd', 'asdasd', '1231', 1, 1, 50, 'asdasdasda\nsadasdad'),
-(8, '0000-00-00', '9/1/2017', '123123', 'asd', 'asdasd', '12231', 1, 1, 50, '13123123\n1231\n231\n231\n23\n123\n');
+(1, '2017-08-02 05:51:00', '2017-10-01 00:00:00', 'Pasig', 'Test', 'Test', '123', 14, 11, 50, 'nothing'),
+(4, '2017-08-05 01:17:53', '2017-10-02 00:00:00', 'Pasig', 'Test', 'tes', '123123', 14, 11, 50, 'sad');
 
 -- --------------------------------------------------------
 
@@ -217,16 +187,17 @@ CREATE TABLE `users` (
   `contact_no` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `user_type` int(11) NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `contact_no`, `address`, `username`, `password`) VALUES
-(1, '', '', '', '', 'jampol', 'password'),
-(2, '', '', '', '', 'test', 'XSGx2FFrKCJoKuvwZwrFNdP+9aU=');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `contact_no`, `address`, `username`, `password`, `user_type`) VALUES
+(1, 'admin', 'admin', '', '', 'admin', 'password', 1),
+(2, 'user1', 'userlastname', '', '', 'user1', 'password', 2);
 
 --
 -- Indexes for dumped tables
@@ -295,17 +266,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `food_menu`
 --
 ALTER TABLE `food_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `food_type`
 --
@@ -315,17 +286,17 @@ ALTER TABLE `food_type`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
