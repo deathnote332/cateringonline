@@ -22,22 +22,10 @@ Partial Class reservation_viewer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.CrystalReport11 = New new_catering.CrystalReport1()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'CrystalReportViewer1
-        '
-        Me.CrystalReportViewer1.ActiveViewIndex = 0
-        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 47)
-        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.ReportSource = Me.CrystalReport11
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(872, 552)
-        Me.CrystalReportViewer1.TabIndex = 0
-        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'Label1
         '
@@ -49,6 +37,18 @@ Partial Class reservation_viewer
         Me.Label1.Size = New System.Drawing.Size(34, 33)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "X"
+        '
+        'CrystalReportViewer1
+        '
+        Me.CrystalReportViewer1.ActiveViewIndex = 0
+        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 46)
+        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.ReportSource = Me.CrystalReport11
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(872, 552)
+        Me.CrystalReportViewer1.TabIndex = 0
+        Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'reservation_viewer
         '

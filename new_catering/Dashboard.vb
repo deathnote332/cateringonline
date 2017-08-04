@@ -148,19 +148,19 @@ Public Class Dashboard
 
                 'MOVE FILE IF SELECTED
                 If (isSelectedFile >= 1) Then
-                    If Not (File.Exists(Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))) Then
+                    If Not (File.Exists("C:/xampp/htdocs/images/" & Path.GetFileName(filename))) Then
 
-                        FileCopy(filename, Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                        FileCopy(filename, "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
                         isSelectedFile = 0
                     End If
-                    field.Add("image", Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                    field.Add("image", "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
 
                 Else
                     field.Add("image", "")
                 End If
 
 
-                httpPost(field, "saveEvent")
+                MsgBox(httpPost(field, "saveEvent"))
                 backtoAddEvents()
                 
                 loadDataEvents()
@@ -221,19 +221,19 @@ Public Class Dashboard
 
                 'MOVE FILE IF SELECTED
                 If (isSelectedFile >= 1) Then
-                    If Not (File.Exists(Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))) Then
+                    If Not (File.Exists("C:/xampp/htdocs/images/" & Path.GetFileName(filename))) Then
 
-                        FileCopy(filename, Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                        FileCopy(filename, "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
                         isSelectedFile = 0
                     End If
-                    field.Add("image", Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                    field.Add("image", "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
 
                 Else
                     field.Add("image", img_path.Text)
                 End If
 
 
-                httpPost(field, "updateEvent")
+                MsgBox(httpPost(field, "updateEvent"))
                 backtoAddEvents()
 
                 loadDataEvents()
@@ -306,7 +306,7 @@ Public Class Dashboard
                 field.Add("event_id", packages_cb1.SelectedItem.Value)
                 field.Add("package_name", packages_name.Text)
                 field.Add("price_head", packages_perhead.Text)
-                httpPost(field, "savePackage")
+                MsgBox(httpPost(field, "savePackage"))
                 loadDataPackages()
 
                 backToAddPackages()
@@ -360,7 +360,7 @@ Public Class Dashboard
                 field.Add("event_id", packages_cb1.SelectedItem.Value)
                 field.Add("package_name", packages_name.Text)
                 field.Add("price_head", packages_perhead.Text)
-                httpPost(field, "updatePackage")
+                MsgBox(httpPost(field, "updatePackage"))
                 loadDataPackages()
 
                 backToAddPackages()
@@ -419,9 +419,9 @@ Public Class Dashboard
         menus_dg.Columns(0).Visible = False
 
         getComboEventName(menus_cb1)
-        getComboPackageName(menus_cb2)
 
-        
+        list_menu_food.Visible = False
+        LinkLabel4.Visible = False
         backToAddMenus()
         Return Nothing
     End Function
@@ -449,6 +449,8 @@ Public Class Dashboard
     Private Sub menus_cb1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles menus_cb1.SelectedIndexChanged
         listCount = menus_list.Items.Count
         getFoodList(menus_list)
+        getFoodList(list_menu_food)
+        getPackageFromEvent(menus_cb1.SelectedItem.Value, menus_cb2)
     End Sub
 
     Private Sub menus_add_btn_Click(sender As Object, e As EventArgs) Handles menus_add_btn.Click
@@ -461,7 +463,7 @@ Public Class Dashboard
                 field.Add("menu_name", menus_name.Text)
                 field.Add("event_id", menus_cb1.SelectedItem.Value)
                 field.Add("package_id", menus_cb2.SelectedItem.Value)
-                httpPost(field, "saveMenu")
+                MsgBox(httpPost(field, "saveMenu"))
 
                 For i As Integer = 0 To menus_list.SelectedItems.Count - 1
                     field.Add("food_id", menus_list.SelectedItems(i).SubItems(3).Text)
@@ -470,7 +472,7 @@ Public Class Dashboard
 
                 
                 loadDataMenus()
-
+                backtoMenu()
             End If
 
 
@@ -483,17 +485,25 @@ Public Class Dashboard
 
     Private Sub menus_dg_DoubleClick(sender As Object, e As EventArgs) Handles menus_dg.DoubleClick
         If Not menus_dg.Rows.Count = 0 Then
+
+            menus_list.Visible = True
+            list_menu_food.Visible = False
+            LinkLabel4.Text = "ADD"
+            menus_update_btn.Text = "UPDATE"
+
             menus_id.Text = menus_dg.SelectedRows.Item(0).Cells(0).Value
             menus_name.Text = menus_dg.SelectedRows.Item(0).Cells(1).Value
             menus_cb1.Text = menus_dg.SelectedRows.Item(0).Cells(2).Value
             menus_cb2.Text = menus_dg.SelectedRows.Item(0).Cells(3).Value
 
+            LinkLabel4.Visible = True
+            getFoodList(list_menu_food)
             ' getFood("foods", menus_list, 1, menus_id.Text)
-
+            getFoodfromEventsPackage(menus_cb1.SelectedItem.Value, menus_cb2.SelectedItem.Value, menus_list, menus_id.Text)
             menus_add_btn.Visible = False
 
             menus_update_btn.Visible = True
-            backtomenus.Visible = False
+            backtomenus.Visible = True
 
             isRemove = True
         End If
@@ -502,33 +512,40 @@ Public Class Dashboard
     End Sub
 
     Private Sub menus_update_btn_Click(sender As Object, e As EventArgs) Handles menus_update_btn.Click
-        If (menus_name.Text = "" Or menus_cb1.Text = "" Or menus_cb1.Text = "" Or menus_list.Items.Count = 0) Then
-            MsgBox("Please input required fields", vbCritical, "Error")
-        Else
-            If (MsgBox("Are you sure you want to update this menu?", vbQuestion + vbYesNo, "UPDATE MENU") = vbYes) Then
+        If (menus_update_btn.Text.Equals("UPDATE")) Then
 
-                field.Add("menu_name", menus_name.Text)
-                field.Add("event_id", menus_cb1.SelectedItem.Value)
-                field.Add("package_id", menus_cb2.SelectedItem.Value)
-                '        Updates(field, "menus", "where id=" & menus_id.Text & "")
+            If (menus_name.Text = "" Or menus_cb1.Text = "" Or menus_cb1.Text = "" Or menus_list.Items.Count = 0) Then
+                MsgBox("Please input required fields", vbCritical, "Error")
+            Else
+                If (MsgBox("Are you sure you want to update this menu?", vbQuestion + vbYesNo, "UPDATE MENU") = vbYes) Then
 
-                If Not (listCount = menus_list.Items.Count) Then
-                    '    delete("food_menu", "where menu_id=" & menus_id.Text & "")
-                    For i As Integer = 0 To menus_list.Items.Count - 1
-                        field.Add("food_id", menus_list.Items(i).SubItems(3).Text)
-                        field.Add("menu_id", menus_id.Text)
-                        '       Add(field, "food_menu")
-                    Next
+                    field.Add("menu_name", menus_name.Text)
+                    field.Add("event_id", menus_cb1.SelectedItem.Value)
+                    field.Add("package_id", menus_cb2.SelectedItem.Value)
+                    '        Updates(field, "menus", "where id=" & menus_id.Text & "")
+
+                    If Not (listCount = menus_list.Items.Count) Then
+                        '    delete("food_menu", "where menu_id=" & menus_id.Text & "")
+                        For i As Integer = 0 To menus_list.Items.Count - 1
+                            field.Add("food_id", menus_list.Items(i).SubItems(3).Text)
+                            field.Add("menu_id", menus_id.Text)
+                            '       Add(field, "food_menu")
+                        Next
+                    End If
+                    MsgBox("Menu Successfully updated", vbInformation, "Success")
+
+                    loadDataMenus()
+                    backtoMenu()
                 End If
-                MsgBox("Menu Successfully updated", vbInformation, "Success")
 
-                loadDataMenus()
+
 
             End If
-
-
+        ElseIf (menus_update_btn.Text.Equals("Add to your food list")) Then
 
         End If
+
+        
     End Sub
 
     Private Sub menus_delete_btn_Click(sender As Object, e As EventArgs)
@@ -536,10 +553,44 @@ Public Class Dashboard
             '    delete("menus", "where id=" & menus_id.Text & "")
             MsgBox("Menu Successfully deleted", vbInformation, "Success")
             loadDataMenus()
+            backtoMenu()
         End If
 
     End Sub
 
+    Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
+        If (LinkLabel4.Text.Equals("ADD")) Then
+            menus_list.Visible = False
+            list_menu_food.Visible = True
+            LinkLabel4.Text = "BACK"
+            menus_update_btn.Text = "Add to your food list"
+            
+
+
+
+
+        ElseIf (LinkLabel4.Text.Equals("BACK")) Then
+            menus_list.Visible = True
+            list_menu_food.Visible = False
+            LinkLabel4.Text = "ADD"
+            menus_update_btn.Text = "UPDATE"
+
+        End If
+
+
+    End Sub
+
+    Public Function backtoMenu()
+        menus_name.Clear()
+        menus_cb1.Text = ""
+        menus_cb2.Text = ""
+        menus_list.Items.Clear()
+        menus_update_btn.Visible = False
+        menus_add_btn.Visible = True
+        backtomenus.Visible = False
+        LinkLabel4.Visible = False
+        Return Nothing
+    End Function
     Private Sub menus_cb1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles menus_cb1.KeyPress
         e.Handled = True
     End Sub
@@ -561,7 +612,7 @@ Public Class Dashboard
 
         loadDataFoods()
     End Sub
-
+ 
 
     Public Function loadDataFoods()
         dataGridField.Add("colName", {"ID", "Food Type", "Food Name", "Food Description", "FILE", "Image"})
@@ -627,19 +678,19 @@ Public Class Dashboard
 
                 'MOVE FILE IF SELECTED
                 If (isSelectedFile >= 1) Then
-                    If Not (File.Exists(Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))) Then
+                    If Not (File.Exists("C:/xampp/htdocs/images/" & Path.GetFileName(filename))) Then
 
-                        FileCopy(filename, Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                        FileCopy(filename, "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
                         isSelectedFile = 0
                     End If
-                    field.Add("image", Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                    field.Add("image", "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
 
                 Else
                     field.Add("image", "")
                 End If
 
 
-                httpPost(field, "saveFood")
+                MsgBox(httpPost(field, "saveFood"))
                 loadDataFoods()
 
             End If
@@ -652,6 +703,9 @@ Public Class Dashboard
     End Sub
 
     Private Sub foods_update_btn_Click(sender As Object, e As EventArgs) Handles foods_update_btn.Click
+
+      
+
 
         If (foods_cb1.Text = "" Or foods_name.Text = "" Or foods_description.Text = "") Then
 
@@ -670,17 +724,17 @@ Public Class Dashboard
 
                 'MOVE FILE IF SELECTED
                 If (isSelectedFile >= 1) Then
-                    If Not (File.Exists(Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))) Then
+                    If Not (File.Exists("C:/xampp/htdocs/images/" & Path.GetFileName(filename))) Then
 
-                        FileCopy(filename, Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                        FileCopy(filename, "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
                         isSelectedFile = 0
                     End If
-                    field.Add("image", Directory.GetCurrentDirectory() & "/images/" & Path.GetFileName(filename))
+                    field.Add("image", "C:/xampp/htdocs/images/" & Path.GetFileName(filename))
 
                 Else
                     field.Add("image", img_path.Text)
                 End If
-                httpPost(field, "updateFood")
+                MsgBox(httpPost(field, "updateFood"))
 
                 loadDataFoods()
 
@@ -705,12 +759,35 @@ Public Class Dashboard
 
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        foods_panel.Location = New Point(196, 69)
+        
+        reservations_panel.Location = New Point(196, 69)
         menus_panel.Visible = False
         event_panel.Visible = False
         packages_panel.Visible = False
         reservations_panel.Visible = True
         foods_panel.Visible = False
+
+        If (userType.Equals("1")) Then
+            Label28.Text = "Administrator"
+            side_event.Visible = True
+            side_pack.Visible = True
+            side_reserv.Visible = True
+            side_foods.Visible = True
+            side_menus.Visible = True
+
+        Else
+            Label28.Text = "User"
+            side_event.Visible = False
+            side_pack.Visible = False
+            side_reserv.Visible = True
+            side_foods.Visible = False
+            side_menus.Visible = False
+
+
+
+        End If
+
+
 
         loadDataReservations()
 
@@ -743,7 +820,9 @@ Public Class Dashboard
     End Sub
 
     Private Sub PictureBox8_Click(sender As Object, e As EventArgs) Handles PictureBox8.Click
+        userType = 0
         Me.Hide()
+        Me.Dispose()
         LoginPage.Show()
         LoginPage.TextBox1.Clear()
         LoginPage.TextBox2.Clear()
@@ -757,6 +836,12 @@ Public Class Dashboard
     Private Sub side_event_Paint(sender As Object, e As PaintEventArgs) Handles side_event.Paint
 
     End Sub
+
+    Private Sub backtomenus_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles backtomenus.LinkClicked
+        backtoMenu()
+    End Sub
+
+  
 End Class
 
 

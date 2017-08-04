@@ -4,23 +4,20 @@ Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Net
 Imports Newtonsoft.Json.Linq
+Imports System.Web
 
 Module functions
 
     Public colNames As Array
     Public dataFieldName As Array
+    Public userType As String = 0
 
-    'connection
-    Public conType As String = "mysql"
-    Dim host As String = "localhost"
-    Dim hostName As String = "root"
-    Dim hostpassword As String = ""
-    Dim dbName As String = "catering"
-    Public rs As New ADODB.Recordset
     Public field As New Dictionary(Of String, String)
 
     Public dataGridField As New Dictionary(Of String, Array)
-    Private url As String = "http://192.168.43.113/webRequest.php?function="
+    Private url As String = "http://localhost/webRequest.php?function="
+
+
 
 
     Public Function httpPost(fields As Dictionary(Of String, String), requestUrl As String)
@@ -47,7 +44,7 @@ Module functions
         reader.Close()
         dataStream.Close()
         response.Close()
-        MsgBox(responseFromServer)
+
         Return responseFromServer
 
     End Function
@@ -167,7 +164,7 @@ Module functions
 
         dg.Rows.Clear()
 
-        
+
         Dim datas As JArray = JArray.Parse(data)
         For Each jtoken As JToken In datas
             dg.Rows.Add(jtoken("id"), jtoken("event_name"), jtoken("package_name"), jtoken("price_head"))
@@ -178,7 +175,7 @@ Module functions
         Return Nothing
     End Function
 
-    
+
     'GET FOODs
     Public Function getFood(dg As DataGridView, options As Dictionary(Of String, Array))
         Dim data = GETURLREQUEST(url & "getFood")
@@ -298,16 +295,16 @@ Module functions
 
     End Function
 
+    Public Function getFoodfromEventsPackage(event_id As String, package_id As String, lvt As ListView, Optional menu_id As String = "")
 
 
-    Public Function getEventimage(event_id As String)
-
-
-        Dim request As WebRequest = WebRequest.Create(url & "getEventimage")
+        Dim request As WebRequest = WebRequest.Create(url & "getFoodFromEventPackage")
         request.Method = "POST"
         Dim postData As String = ""
         postData = "event_id=" + event_id
-        
+        postData += "&package_id=" + package_id
+        postData += "&menu_id=" + menu_id
+
 
         Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
         request.ContentType = "application/x-www-form-urlencoded"
@@ -323,8 +320,48 @@ Module functions
         reader.Close()
         dataStream.Close()
         response.Close()
-        
-        
+
+        lvt.Items.Clear()
+        Dim datas As JArray = JArray.Parse(responseFromServer)
+        For Each jtoken As JToken In datas
+            Dim lvItem As New ListViewItem
+            lvItem.SubItems.Add(jtoken("food_name"))
+            lvItem.SubItems.Add(jtoken("food_type"))
+            lvItem.SubItems.Add(jtoken("id"))
+            lvt.Items.Add(lvItem)
+
+        Next
+
+        Return Nothing
+
+    End Function
+
+
+    Public Function getEventimage(event_id As String)
+
+
+        Dim request As WebRequest = WebRequest.Create(url & "getEventimage")
+        request.Method = "POST"
+        Dim postData As String = ""
+        postData = "event_id=" + event_id
+
+
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+        request.ContentType = "application/x-www-form-urlencoded"
+        request.ContentLength = byteArray.Length
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(byteArray, 0, byteArray.Length)
+        dataStream.Close()
+        Dim response As WebResponse = request.GetResponse()
+        Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
+        dataStream = response.GetResponseStream()
+        Dim reader As New StreamReader(dataStream)
+        Dim responseFromServer As String = reader.ReadToEnd()
+        reader.Close()
+        dataStream.Close()
+        response.Close()
+
+
         Dim image_event As String
         Dim datas As JArray = JArray.Parse(responseFromServer)
         For Each jtoken As JToken In datas
@@ -334,6 +371,47 @@ Module functions
         Return image_event
 
     End Function
+
+    Public Function getPackageFromEvent(event_id As String, cb As ComboBox)
+
+
+        Dim request As WebRequest = WebRequest.Create(url & "getPackageFromEvent")
+        request.Method = "POST"
+        Dim postData As String = ""
+        postData = "event_id=" + event_id
+
+
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postData)
+        request.ContentType = "application/x-www-form-urlencoded"
+        request.ContentLength = byteArray.Length
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(byteArray, 0, byteArray.Length)
+        dataStream.Close()
+        Dim response As WebResponse = request.GetResponse()
+        Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
+        dataStream = response.GetResponseStream()
+        Dim reader As New StreamReader(dataStream)
+        Dim responseFromServer As String = reader.ReadToEnd()
+        reader.Close()
+        dataStream.Close()
+        response.Close()
+
+        cb.Items.Clear()
+        Dim datas As JArray = JArray.Parse(responseFromServer)
+        For Each jtoken As JToken In datas
+            cb.Items.Add(New DictionaryEntry(jtoken("package_name"), jtoken("id")))
+
+        Next
+
+
+        cb.DisplayMember = "Key"
+        cb.ValueMember = "Value"
+        Return Nothing
+
+    End Function
+
+
+    
 
 End Module
 

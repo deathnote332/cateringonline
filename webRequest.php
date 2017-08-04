@@ -72,6 +72,16 @@ switch($function){
 	case 'saveReservation';
 		 saveReservation();
 		 break;
+		 
+	case 'getPackageFromEvent';
+		 getPackageFromEvent();
+		 break;
+		 
+	case 'getFoodFromEventPackage';
+		 getFoodFromEventPackage();
+		 break;
+
+
 
 }
 
@@ -358,6 +368,42 @@ function saveReservation(){
 		echo "Successfully added reservation";
 	}
 
+}
+
+function getPackageFromEvent(){
+	
+	$con = mysqli_connect("localhost","root","","catering");
+	$event_id = $_POST['event_id'];
+	$strGet = "select * from packages where event_id = '$event_id'";
+	
+	$getPackage = mysqli_query($con,$strGet);
+	$getData= array();
+    while($row = mysqli_fetch_assoc($getPackage)){
+        $getData[] = $row;
+    }
+    echo json_encode($getData);
+	
+	
+}
+
+function getFoodFromEventPackage(){
+	
+	$con = mysqli_connect("localhost","root","","catering");
+	$event_id = $_POST['event_id'];
+	$package_id = $_POST['package_id'];
+	$strGet = "select foods.*,food_type.food_type from menus inner join food_menu on menus.id = food_menu.menu_id 
+				inner join foods on foods.id = food_menu.food_id 
+				inner join food_type on foods.food_type_id = food_type.id
+				where menus.event_id = '$event_id' and menus.package_id='$package_id'";
+	
+	$getPackage = mysqli_query($con,$strGet);
+	$getData= array();
+    while($row = mysqli_fetch_assoc($getPackage)){
+        $getData[] = $row;
+    }
+    echo json_encode($getData);
+	
+	
 }
 
 

@@ -66,6 +66,7 @@ Partial Class Dashboard
         Me.events_add_btn = New System.Windows.Forms.Button()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.panel_events = New System.Windows.Forms.Panel()
+        Me.img_path = New System.Windows.Forms.TextBox()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.events_dg = New System.Windows.Forms.DataGridView()
         Me.Label32 = New System.Windows.Forms.Label()
@@ -160,7 +161,12 @@ Partial Class Dashboard
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.foods_dg = New System.Windows.Forms.DataGridView()
         Me.Label57 = New System.Windows.Forms.Label()
-        Me.img_path = New System.Windows.Forms.TextBox()
+        Me.list_menu_food = New System.Windows.Forms.ListView()
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.side_menus.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -431,7 +437,7 @@ Partial Class Dashboard
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(49, 127)
+        Me.Label28.Location = New System.Drawing.Point(53, 127)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(87, 17)
         Me.Label28.TabIndex = 8
@@ -441,11 +447,12 @@ Partial Class Dashboard
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(20, 101)
+        Me.Label1.Location = New System.Drawing.Point(52, 103)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 21)
+        Me.Label1.Size = New System.Drawing.Size(121, 21)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Jeremy John Doe Sr."
+        Me.Label1.Text = "John paul Inhog"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label5
         '
@@ -660,6 +667,15 @@ Partial Class Dashboard
         Me.panel_events.Name = "panel_events"
         Me.panel_events.Size = New System.Drawing.Size(642, 474)
         Me.panel_events.TabIndex = 26
+        '
+        'img_path
+        '
+        Me.img_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.img_path.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.img_path.Location = New System.Drawing.Point(600, 4)
+        Me.img_path.Name = "img_path"
+        Me.img_path.Size = New System.Drawing.Size(134, 22)
+        Me.img_path.TabIndex = 57
         '
         'LinkLabel3
         '
@@ -1248,6 +1264,8 @@ Partial Class Dashboard
         'Panel9
         '
         Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel9.Controls.Add(Me.LinkLabel4)
+        Me.Panel9.Controls.Add(Me.list_menu_food)
         Me.Panel9.Controls.Add(Me.LinkLabel1)
         Me.Panel9.Controls.Add(Me.backtomenus)
         Me.Panel9.Controls.Add(Me.menus_id)
@@ -1718,23 +1736,57 @@ Partial Class Dashboard
         Me.Label57.TabIndex = 10
         Me.Label57.Text = "FOODS"
         '
-        'img_path
+        'list_menu_food
         '
-        Me.img_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.img_path.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.img_path.Location = New System.Drawing.Point(600, 4)
-        Me.img_path.Name = "img_path"
-        Me.img_path.Size = New System.Drawing.Size(134, 22)
-        Me.img_path.TabIndex = 57
+        Me.list_menu_food.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
+        Me.list_menu_food.FullRowSelect = True
+        Me.list_menu_food.Location = New System.Drawing.Point(16, 244)
+        Me.list_menu_food.Name = "list_menu_food"
+        Me.list_menu_food.Size = New System.Drawing.Size(228, 174)
+        Me.list_menu_food.TabIndex = 57
+        Me.list_menu_food.UseCompatibleStateImageBehavior = False
+        Me.list_menu_food.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Width = 2
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Food Name"
+        Me.ColumnHeader6.Width = 84
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Food Type"
+        Me.ColumnHeader7.Width = 138
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "id"
+        Me.ColumnHeader8.Width = 0
+        '
+        'LinkLabel4
+        '
+        Me.LinkLabel4.AutoSize = True
+        Me.LinkLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.LinkLabel4.LinkColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.LinkLabel4.Location = New System.Drawing.Point(211, 223)
+        Me.LinkLabel4.Name = "LinkLabel4"
+        Me.LinkLabel4.Size = New System.Drawing.Size(26, 12)
+        Me.LinkLabel4.TabIndex = 58
+        Me.LinkLabel4.TabStop = True
+        Me.LinkLabel4.Text = "ADD"
         '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1172, 572)
+        Me.Controls.Add(Me.menus_panel)
         Me.Controls.Add(Me.event_panel)
         Me.Controls.Add(Me.packages_panel)
-        Me.Controls.Add(Me.menus_panel)
         Me.Controls.Add(Me.foods_panel)
         Me.Controls.Add(Me.reservations_panel)
         Me.Controls.Add(Me.Label31)
@@ -1944,5 +1996,11 @@ Partial Class Dashboard
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents LinkLabel5 As System.Windows.Forms.LinkLabel
     Friend WithEvents img_path As System.Windows.Forms.TextBox
+    Friend WithEvents list_menu_food As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents LinkLabel4 As System.Windows.Forms.LinkLabel
 
 End Class
